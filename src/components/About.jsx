@@ -3,7 +3,7 @@ import img from '../assets/images/logo.jpeg';
 
 function AboutPage() {
     return (
-        <div className="min-h-screen bg-gray-100 pt-20">
+        <div className="min-h-screen select-none bg-gray-100 pt-20">
             <div className="w-screen bg-white shadow-lg p-8">
                 <img src={image} alt="About Banner" className="w-full h-56 object-cover rounded-lg mb-6" />
                 <p className="text-gray-600 text-center mb-6">

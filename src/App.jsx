@@ -7,9 +7,17 @@ import LoginPage from "./components/Login";
 import RegisterPage from "./components/Register";
 import ContactForm from "./components/Contact";
 import AboutPage from "./components/About";
+import { useEffect } from "react";
 
 function App() {
-
+  useEffect(() => {
+    const disableContextMenu = (event) => event.preventDefault();
+    document.addEventListener("contextmenu", disableContextMenu);
+    
+    return () => {
+      document.removeEventListener("contextmenu", disableContextMenu);
+    };
+  }, []);
   return (
       <div>
         <Navbar/>

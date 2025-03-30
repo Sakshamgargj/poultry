@@ -33,7 +33,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-white font-mono dark:bg-yellow-700 text-white dark:text-white py-12">
+    <footer className="bg-white select-none font-mono dark:bg-yellow-700 text-white dark:text-white py-12">
       <div className="container mx-auto px-4 grid md:grid-cols-3 gap-8">
         {/* Company Info */}
         <div>
@@ -82,7 +82,7 @@ const Footer = () => {
 
       {/* Copyright */}
       <div className="text-mono pl-4 mt-8 pt-4 border-t border-gray-200 dark:border-gray-700">
-        <p className="text-gray-200 dark:text-gray-400">
+        <p className="text-gray-200 dark:text-gray-200">
           © {currentYear} LOGOIMG. All Rights Reserved.
         </p>
       </div>

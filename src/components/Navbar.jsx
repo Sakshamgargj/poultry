@@ -80,7 +80,7 @@ function Navbar() {
 
     return (
         <motion.nav 
-            className={`fixed w-full flex items-center justify-between px-4 py-3 z-50  ${
+            className={`fixed select-none w-full flex items-center justify-between px-4 py-3 z-50  ${
                 isScrolled ? 'bg-white shadow-md' : 'bg-white/90 backdrop-blur-sm'
             }`}
             initial={{ y: -100 }}
