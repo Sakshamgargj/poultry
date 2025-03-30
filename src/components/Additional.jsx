@@ -18,7 +18,7 @@ function Additional() {
                     whileHover={{ scale: 1.05, color: "#ca8a04" }}
                     transition={{ duration: 0.3 }}
                 >
-                    Welcome
+                    About Us
                 </motion.h2>
                 <hr className="border-t-2 border-gray-400 border-dotted mx-auto md:mx-0 mb-2" />
                 <motion.p className="text-sm leading-relaxed">

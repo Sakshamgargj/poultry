@@ -107,6 +107,36 @@ const HeroSection = () => {
                 )}
             </div>
 
+            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-1 gap-8 text-gray-700 px-5">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="p-5 rounded-lg shadow-lg bg-white"
+                >
+                    <motion.h2
+                        className="text-2xl font-mono mb-1"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        whileHover={{ scale: 1, color: "#ca8a04" }}
+                        transition={{ duration: 0.3 }}
+                    >
+                        Welcome
+                    </motion.h2>
+                    <hr className="border-t-2 border-gray-400 border-dotted mx-auto md:mx-0 mb-2" />
+                    <motion.p className="text-sm leading-relaxed">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris.
+                    </motion.p>
+                    <motion.p className="text-sm leading-relaxed ">
+                        Morbi nunc odio, gravida at, cursus nec. Donec accumsan malesuada orci. Donec sit amet eros.
+                    </motion.p>
+                    <button className="mt-4 px-6 py-2 bg-yellow-500 text-white font-mono rounded hover:bg-yellow-600 transition">
+                        Get Started
+                    </button>
+                </motion.div>
+            </div>
+
             <Category />
             <ContactForm />
             <Additional />

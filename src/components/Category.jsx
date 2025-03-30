@@ -139,7 +139,7 @@ export default function CategorySidebar() {
   const [showSidebar, setShowSidebar] = useState(false);
 
   return (
-    <div className="flex pt-20 flex-col md:flex-row min-h-screen">
+    <div className="flex pt-10 flex-col md:flex-row min-h-screen">
       {/* Mobile Sidebar Toggle Button */}
       <div className="md:hidden p-4">
         <button
