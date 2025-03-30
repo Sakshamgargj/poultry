@@ -90,14 +90,14 @@ function Navbar() {
             {/* Logo */}
             <Link to="/" className="text-2xl font-mono flex items-center z-20">
                 <motion.span 
-                    className="text-blue-600"
+                    className="text-yellow-500"
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                 >
                     LOGO
                 </motion.span>
                 <motion.span 
-                    className="text-green-600"
+                    className="text-yellow-600"
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                 >
@@ -123,11 +123,11 @@ function Navbar() {
                                 placeholder="Search..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                                className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all"
                             />
                             <motion.button 
                                 type="submit"
-                                className="absolute right-10 text-gray-500 hover:text-blue-600 transition-colors"
+                                className="absolute right-10 text-gray-500 hover:text-yellow-600 transition-colors"
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.95 }}
                             >
@@ -146,7 +146,7 @@ function Navbar() {
                     ) : (
                         <motion.button
                             onClick={toggleSearch}
-                            className="mr-4 text-gray-600 hover:text-blue-600 transition-colors"
+                            className="mr-4 text-gray-600 hover:text-yellow-600 transition-colors"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.95 }}
                             initial={{ opacity: 0 }}
@@ -164,7 +164,7 @@ function Navbar() {
             <div className="md:hidden flex items-center z-20">
                 <motion.button 
                     onClick={toggleMobileMenu}
-                    className="text-gray-600 hover:text-blue-600 transition-colors"
+                    className="text-gray-600 hover:text-yellow-600 transition-colors"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                 >
@@ -176,7 +176,7 @@ function Navbar() {
             <div className="hidden md:flex items-center space-x-8">
                 <Link to='/about'>
                     <motion.button
-                        className="text-gray-700 font-mono hover:text-blue-600 transition-colors"
+                        className="text-gray-700 font-mono hover:text-yellow-600 transition-colors"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
@@ -185,7 +185,7 @@ function Navbar() {
                 </Link>
                 <Link to='/contact'>
                     <motion.button
-                        className="text-gray-700 font-mono hover:text-blue-600 transition-colors"
+                        className="text-gray-700 font-mono hover:text-yellow-600 transition-colors"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
@@ -194,7 +194,7 @@ function Navbar() {
                 </Link>
                 <Link to='/login'>
                     <motion.button
-                        className="px-4 py-2 text-blue-600 font-mono border border-blue-600 rounded-md hover:bg-blue-50 transition-colors"
+                        className="px-4 py-2 text-yellow-600 font-mono border border-yellow-500 rounded-md hover:bg-yellow-50 transition-colors"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
@@ -203,7 +203,7 @@ function Navbar() {
                 </Link>
                 <Link to='/register'>
                     <motion.button
-                        className="px-4 py-2 text-white font-mono bg-blue-600 rounded-md hover:bg-blue-700 transition-colors"
+                        className="px-4 py-2 text-white font-mono bg-yellow-500 rounded-md hover:bg-yellow-600 transition-colors"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
@@ -232,11 +232,11 @@ function Navbar() {
                                     placeholder="Search..."
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
-                                    className="w-full px-4 py-3 pr-10 bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                                    className="w-full px-4 py-3 pr-10 bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all"
                                 />
                                 <button 
                                     type="submit"
-                                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-blue-600 transition-colors p-1"
+                                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-yellow-600 transition-colors p-1"
                                 >
                                     <FaSearch size={18} />
                                 </button>
@@ -246,7 +246,7 @@ function Navbar() {
                         <div className="flex flex-col items-center space-y-6 p-6">
                             <Link to='/contact' onClick={() => setIsMobileMenuOpen(false)}>
                                 <motion.span
-                                    className="text-xl font-medium text-gray-700 hover:text-blue-600 transition-colors"
+                                    className="text-xl font-medium text-gray-700 hover:text-yellow-600 transition-colors"
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                 >
@@ -255,7 +255,7 @@ function Navbar() {
                             </Link>
                             <Link to='/login' onClick={() => setIsMobileMenuOpen(false)}>
                                 <motion.span
-                                    className="text-xl font-medium text-blue-600 hover:text-blue-800 transition-colors"
+                                    className="text-xl font-medium text-yellow-600 hover:text-yellow-800 transition-colors"
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                 >
@@ -264,7 +264,7 @@ function Navbar() {
                             </Link>
                             <Link to='/register' onClick={() => setIsMobileMenuOpen(false)}>
                                 <motion.div
-                                    className="px-8 py-3 text-white text-lg font-medium bg-blue-600 rounded-md hover:bg-blue-700 transition-colors"
+                                    className="px-8 py-3 text-white text-lg font-medium bg-yellow-600 rounded-md hover:bg-yellow-700 transition-colors"
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                 >

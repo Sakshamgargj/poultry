@@ -102,8 +102,8 @@ function ContactForm() {
                     {/* Submit Button */}
                     <div className="sm:col-span-2">
                         <button 
-                            className="w-full bg-yellow-600 text-white py-2 rounded-md font-bold 
-                                       hover:bg-yellow-700 transition-all duration-300 transform hover:scale-105"
+                            className="w-full bg-yellow-500 text-white py-2 rounded-md font-bold 
+                                       hover:bg-yellow-600 transition-all duration-300 transform hover:scale-105"
                         >
                             SUBMIT YOUR REQUIREMENT
                         </button>

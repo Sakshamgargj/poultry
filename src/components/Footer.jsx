@@ -27,24 +27,20 @@ const Footer = () => {
       url: 'https://twitter.com' 
     },
     { 
-      icon: <FaInstagram />, 
-      url: 'https://instagram.com' 
-    },
-    { 
       icon: <FaLinkedin />, 
       url: 'https://linkedin.com' 
     }
   ];
 
   return (
-    <footer className="bg-white font-mono dark:bg-gray-900 text-gray-800 dark:text-gray-200 py-12">
+    <footer className="bg-white font-mono dark:bg-yellow-700 text-white dark:text-white py-12">
       <div className="container mx-auto px-4 grid md:grid-cols-3 gap-8">
         {/* Company Info */}
         <div>
-          <h3 className="text-2xl font-bold mb-4 text-blue-600 dark:text-blue-400">
+          <h3 className="text-2xl font-bold mb-4 text-yellow-600 dark:text-yellow-400">
             LOGOIMG
           </h3>
-          <p className="text-gray-600  dark:text-gray-400">
+          <p className="text-gray-600  dark:text-gray-200">
             Delivering high-quality poultry products accessories and machines to your doorstep.
           </p>
         </div>
@@ -57,7 +53,7 @@ const Footer = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className="block text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
+                className="block text-gray-600 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-400"
               >
                 {link.name}
               </Link>
@@ -75,7 +71,7 @@ const Footer = () => {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-2xl text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
+                className="text-2xl text-gray-600 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-500"
               >
                 {social.icon}
               </a>
@@ -85,8 +81,8 @@ const Footer = () => {
       </div>
 
       {/* Copyright */}
-      <div className="text-mono pl-20 mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
-        <p className="text-gray-600 dark:text-gray-400">
+      <div className="text-mono pl-4 mt-8 pt-4 border-t border-gray-200 dark:border-gray-700">
+        <p className="text-gray-200 dark:text-gray-400">
           © {currentYear} LOGOIMG. All Rights Reserved.
         </p>
       </div>
