@@ -9,6 +9,8 @@ import image5 from '../assets/images/img5.jpg';
 import image6 from '../assets/images/img6.jpg';
 import image7 from '../assets/images/img7.jpg';
 
+const images = [image1, image2, image3, image4, image5, image6, image7];
+
 const CategoryData = [
   {
     category: 'Dairy Farms and Breeders',
@@ -157,7 +159,7 @@ export default function CategorySidebar() {
         transition={{ duration: 0.5 }}
         className={`fixed inset-y-0 left-0 w-64 bg-yellow-200 md:bg-transparent p-4 border-r-2 border-gray-400 border-dotted transition-transform transform md:relative md:translate-x-0 ${showSidebar ? "translate-x-0" : "-translate-x-full"}`}
       >
-        <h2 className="text-lg text-center font-mono text-yellow-600 mb-4">Latest Category</h2>
+        <h2 className="text-lg text-center font-mono text-yellow-600 mb-4">Buyers Guide</h2>
         {CategoryData.map((item, index) => (
           <motion.button
             key={index}
@@ -174,7 +176,7 @@ export default function CategorySidebar() {
       {/* Main Content */}
       <div className="w-full text-lg text-center md:w-3/4 p-4">
         <h2 className="text-2xl font-mono text-yellow-600 border-b-2 border-gray-400 border-dotted pb-2 mb-4">{selectedCategory.category}</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
           {selectedCategory.subcategories.map((sub, index) => (
             <div
               key={index}
@@ -195,6 +197,30 @@ export default function CategorySidebar() {
         </div>
 
       </div>
+      
+      <div className="relative w-full md:w-1/4 h-auto overflow-hidden">
+      <motion.div
+        className="absolute w-full flex flex-col items-center"
+        animate={{ y: ["0%", "-100%"] }}
+        transition={{
+          duration: 12, // Slower animation for full cycle
+          ease: "linear",
+          repeat: Infinity,
+          repeatDelay: -5, // Small pause before restarting
+        }}
+      >
+        {/* Show all images in sequence */}
+        {images.map((img, index) => (
+          <img
+            key={index}
+            src={img}
+            alt={`Banner ${index + 1}`}
+            className="w-full p-1 h-auto object-cover"
+          />
+        ))}
+      </motion.div>
+    </div>
+    
     </div>
   );
 }
