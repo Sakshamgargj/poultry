@@ -33,7 +33,7 @@ function RegisterPage() {
         setError("");
 
         try {
-            const response = await axios.post(`${import.meta.env.VITE_API_URL}+user/register`, {
+            const response = await axios.post(import.meta.env.VITE_API_URL+"user/register", {
                 username: formData.username,
                 email: formData.email,
                 password: formData.password,

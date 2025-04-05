@@ -43,7 +43,7 @@ function LoginPage() {
 
         try {
             const response = await axios.post(
-                `${import.meta.env.VITE_API_URL}+user/login`,
+                import.meta.env.VITE_API_URL+`user/login`,
                 {
                     email: formData.email,
                     password: formData.password,
