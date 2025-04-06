@@ -77,9 +77,9 @@ const HeroSection = () => {
     };
 
     return (
-        <div className="w-full select-none">
+        <div className="w-full select-none ">
             {/* Main hero section with banners and updates */}
-            <div className="w-full pt-16" style={{ height: "auto" }}>
+            <div className="w-full pt-16 px-4 md:px-8" style={{ height: "auto" }}>
                 <div className="flex flex-col md:flex-row w-full">
                     {/* Banner/Video section - full width on mobile, 2/3 width on desktop */}
                     <div className="w-full md:w-2/3 relative overflow-hidden" style={{ height: "45vh" }}>
@@ -87,7 +87,7 @@ const HeroSection = () => {
                         {!videoPlayed ? (
                             <video
                                 src={video1}
-                                className="absolute inset-0 w-full h-full object-cover"
+                                className="absolute inset-0 w-full h-full rounded-2xl object-cover"
                                 autoPlay
                                 muted
                                 playsInline
@@ -117,7 +117,7 @@ const HeroSection = () => {
                                     <img
                                         src={banner.image}
                                         alt={`Banner ${banner.id}`}
-                                        className="absolute inset-0 w-full h-full object-cover"
+                                        className="absolute inset-0 w-full rounded-2xl h-full object-cover"
                                     />
                                 </motion.div>
                             ))
@@ -163,9 +163,9 @@ const HeroSection = () => {
                     </div>
 
                     {/* Updates section - full width on mobile, 1/3 width on desktop */}
-                    <div className="w-full md:w-1/3 border-t md:border-t-0 md:border-l border-gray-200 bg-white">
-                        <div className="bg-gray-50 text-center py-2 border-b border-gray-200">
-                            <h3 className="font-bold text-sm md:text-base text-darkText">IMPORTANT UPDATES</h3>
+                    <div className="w-full md:w-1/3 border-t md:border-t-0 rounded-2xl border-gray-200 bg-white">
+                        <div className="text-center py-2 rounded-2xl border-b border-gray-400">
+                            <h3 className="font-bold text-sm md:text-base text-darkprimary">IMPORTANT UPDATES</h3>
                         </div>
 
                         <div className="flex flex-col md:h-[40vh] overflow-y-auto">

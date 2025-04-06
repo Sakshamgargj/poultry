@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Menu } from "lucide-react";
 import { motion } from "framer-motion";
 import image1 from '../assets/images/img1.jpg';
@@ -139,9 +139,37 @@ const CategoryData = [
 export default function CategorySidebar() {
   const [selectedCategory, setSelectedCategory] = useState(CategoryData[0]);
   const [showSidebar, setShowSidebar] = useState(false);
+  const sidebarRef = useRef();
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+        setShowSidebar(false);
+      }
+    };
+  
+    const handleScroll = (event) => {
+      if (!sidebarRef.current) return;
+  
+      const sidebarEl = sidebarRef.current;
+      if (sidebarEl.contains(event.target)) {
+        setShowSidebar(true);  // scrolling inside sidebar
+      } else {
+        setShowSidebar(false); // scrolling outside
+      }
+    };
+  
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("scroll", handleScroll, { capture: true, passive: true });
+  
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("scroll", handleScroll, { capture: true });
+    };
+  }, []);
 
   return (
-    <div className="flex pt-10 flex-col md:flex-row h-auto">
+    <div className="flex select-none pt-10  px-4 md:px-8 flex-col md:flex-row h-auto">
       {/* Mobile Sidebar Toggle Button */}
       <div className="md:hidden p-4">
         <button
@@ -154,34 +182,40 @@ export default function CategorySidebar() {
 
       {/* Sidebar */}
       <motion.div
-        initial={{ x: -100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className={`fixed inset-y-0 left-0 w-64 bg-green-200 md:bg-transparent p-4 pt-16 border-r-2 border-gray-400 border-dotted overflow-y-auto transition-transform transform md:relative md:translate-x-0 ${showSidebar ? "translate-x-0" : "-translate-x-full"}`}
-      >
-        <h2 className="text-lg text-center font-mono text-darkprimary mb-4">Buyers Guide</h2>
+  ref={sidebarRef}
+  initial={{ x: -100, opacity: 0 }}
+  animate={{ x: 0, opacity: 1 }}
+  transition={{ duration: 0.5 }}
+  className={`fixed inset-y-0 left-0 w-64 bg-green-200 md:bg-transparent p-4 pt-16 border-r-2 border-gray-400 border-dotted overflow-y-auto transition-transform transform md:relative md:translate-x-0 ${
+    showSidebar ? "translate-x-0" : "-translate-x-full"
+  }`}
+>
+  <h2 className="text-lg text-center font-mono text-darkprimary mb-4">Buyers Guide</h2>
 
-        {CategoryData.map((item, index) => (
-          <motion.button
-            key={index}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className={`block w-full text-left p-2 rounded-lg mb-2 hover:bg-darkprimary transition-all ${selectedCategory.category === item.category ? "bg-primary text-white" : ""
-              }`}
-            onClick={() => {
-              setSelectedCategory(item);
-              setShowSidebar(false);
-            }}
-          >
-            {item.category}
-          </motion.button>
-        ))}
-      </motion.div>
+  {CategoryData.map((item, index) => (
+    <motion.button
+      key={index}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      className={`block w-full text-left p-2 rounded-lg mb-2 hover:bg-darkprimary transition-all ${
+        selectedCategory.category === item.category ? "bg-primary text-white" : ""
+      }`}
+      onClick={() => {
+        setSelectedCategory(item);
+        setShowSidebar(false);
+      }}
+    >
+      {item.category}
+    </motion.button>
+  ))}
+</motion.div>
+
+
 
       {/* Main Content */}
       <div className="w-full text-lg text-center md:w-3/4 p-4">
         <h2 className="text-2xl font-mono text-darkprimary border-b-2 border-gray-400 border-dotted pb-2 mb-4">{selectedCategory.category}</h2>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+        <div className="grid grid-cols-3 md:grid-cols-5 gap-6">
           {selectedCategory.subcategories.map((sub, index) => (
             <div
               key={index}
@@ -190,13 +224,13 @@ export default function CategorySidebar() {
               <motion.img
                 src={sub.image}
                 alt={sub.image}
-                className="w-full h-40 object-cover rounded-md"
+                className="w-full h-20 md:h-32 object-cover rounded-md"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.5 }}
               />
-              <p className="mt-3 font-mono text-center text-primary">{sub.title}</p>
+              <p className="mt-3 font-mono text-center text-darkText">{sub.title}</p>
             </div>
           ))}
         </div>

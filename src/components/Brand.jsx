@@ -55,7 +55,7 @@ const BrandSection = () => {
   };
 
   return (
-    <section className="w-full h-auto py-2 sm:py-4">
+    <section className="w-full select-none h-auto px-4 md:px-8 py-2 sm:py-4">
       <h2 className="text-center text-darkprimary text-xl sm:text-2xl font-semibold mb-4 sm:mb-6">Our Clients</h2>
       <div className="max-w-8xl mx-auto px-2 sm:px-4">
 

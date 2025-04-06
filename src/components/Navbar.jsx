@@ -103,10 +103,10 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed select-none left-0 w-full z-50 transition-all duration-300 ${
         isScrolled 
           ? "bg-white/95 top-0 shadow-lg py-2" 
-          : "bg-white backdrop-blur-lg py-3"
+          : "bg-white backdrop-blur-lg py-1"
       }`}
     >
       <div className="px-4 lg:px-8 flex items-center justify-between">

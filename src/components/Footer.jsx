@@ -33,12 +33,12 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-white select-none font-mono dark:bg-darkprimary text-white dark:text-white py-12">
+    <footer className="bg-white px-4 md:px-8 select-none font-mono dark:bg-darkprimary text-white dark:text-white py-8">
       <div className="container mx-auto px-4 grid md:grid-cols-3 gap-8">
         {/* Company Info */}
         <div>
-          <h3 className="text-2xl font-bold mb-4 text-primary dark:text-darkprimary">
-            LOGOIMG
+          <h3 className="text-2xl font-bold mb-4 text-white dark:text-white">
+          POULTRY DIGITAL
           </h3>
           <p className="text-gray-600  dark:text-gray-200">
             Delivering high-quality poultry products accessories and machines to your doorstep.
