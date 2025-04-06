@@ -79,7 +79,7 @@ const HeroSection = () => {
         <div className="w-full select-none ">
             {/* Main hero section with banners and updates */}
             <div className="w-full pt-16 px-4 md:px-8" style={{ height: "auto" }}>
-                <div className="flex flex-col md:flex-row w-full">
+                <div className="flex flex-col pt-6 md:flex-row w-full">
                     {/* Banner/Video section - full width on mobile, 2/3 width on desktop */}
                     <div className="w-full md:w-2/3 relative overflow-hidden" style={{ height: "40vh" }}>
                         {/* Video player */}
