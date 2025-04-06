@@ -7,6 +7,7 @@ import image1 from '../assets/images/banner22.jpg';
 import image2 from '../assets/images/banner11.jpg';
 import image3 from '../assets/images/img5.jpg';
 import video1 from '../assets/video/bannervideo.mp4';
+import SearchWithTiltImage from './SearchWithTiltImage';
 
 const HeroSection = () => {
     const [currentBannerIndex, setCurrentBannerIndex] = useState(-1); // -1 for video, 0+ for images
@@ -35,8 +36,6 @@ const HeroSection = () => {
         "Product showcase event postponed to May 15th",
         "Membership discount available until end of month",
         "New partnership with international poultry association announced",
-        "Membership discount available until end of month",
-        "Industry growth report now available for download"
     ];
 
     // Initial video play then transition to images
@@ -82,7 +81,7 @@ const HeroSection = () => {
             <div className="w-full pt-16 px-4 md:px-8" style={{ height: "auto" }}>
                 <div className="flex flex-col md:flex-row w-full">
                     {/* Banner/Video section - full width on mobile, 2/3 width on desktop */}
-                    <div className="w-full md:w-2/3 relative overflow-hidden" style={{ height: "45vh" }}>
+                    <div className="w-full md:w-2/3 relative overflow-hidden" style={{ height: "40vh" }}>
                         {/* Video player */}
                         {!videoPlayed ? (
                             <video
@@ -181,7 +180,9 @@ const HeroSection = () => {
                             ))}
                         </div>
                     </div>
+
                 </div>
+                <SearchWithTiltImage/>
             </div>
         </div>
     );

@@ -100,9 +100,9 @@ function ContactForm() {
                     </div>
 
                     {/* Submit Button */}
-                    <div className="sm:col-span-2 mt-2">
+                    <div className="sm:col-span-2 flex justify-center mt-2">
                         <button 
-                            className="w-full bg-primary text-white py-1.5 sm:py-2 rounded-md font-bold text-xs sm:text-sm
+                            className="w-auto px-20 bg-gradient-to-r from-primary to-darkprimary text-white py-1.5 sm:py-2 rounded-md font-bold text-xs sm:text-sm
                                      hover:bg-darkprimary transition-all duration-300 transform hover:scale-105"
                         >
                             SUBMIT YOUR REQUIREMENT

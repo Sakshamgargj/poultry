@@ -147,10 +147,10 @@ export default function CategorySidebar() {
         setShowSidebar(false);
       }
     };
-  
+
     const handleScroll = (event) => {
       if (!sidebarRef.current) return;
-  
+
       const sidebarEl = sidebarRef.current;
       if (sidebarEl.contains(event.target)) {
         setShowSidebar(true);  // scrolling inside sidebar
@@ -158,10 +158,10 @@ export default function CategorySidebar() {
         setShowSidebar(false); // scrolling outside
       }
     };
-  
+
     document.addEventListener("mousedown", handleClickOutside);
     document.addEventListener("scroll", handleScroll, { capture: true, passive: true });
-  
+
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("scroll", handleScroll, { capture: true });
@@ -182,33 +182,31 @@ export default function CategorySidebar() {
 
       {/* Sidebar */}
       <motion.div
-  ref={sidebarRef}
-  initial={{ x: -100, opacity: 0 }}
-  animate={{ x: 0, opacity: 1 }}
-  transition={{ duration: 0.5 }}
-  className={`fixed inset-y-0 left-0 w-64 bg-green-200 md:bg-transparent p-4 pt-16 border-r-2 border-gray-400 border-dotted overflow-y-auto transition-transform transform md:relative md:translate-x-0 ${
-    showSidebar ? "translate-x-0" : "-translate-x-full"
-  }`}
->
-  <h2 className="text-lg text-center font-mono text-darkprimary mb-4">Buyers Guide</h2>
+        ref={sidebarRef}
+        initial={{ x: -100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className={`fixed inset-y-0 left-0 w-64 bg-green-200 md:bg-transparent p-4 pt-16 md:pt-0 border-r-2 border-gray-400 border-dotted overflow-y-auto transition-transform transform md:relative md:translate-x-0 ${showSidebar ? "translate-x-0" : "-translate-x-full"
+          }`}
+      >
+        <h2 className="text-lg text-center font-mono text-darkprimary mb-4">Buyers Guide</h2>
 
-  {CategoryData.map((item, index) => (
-    <motion.button
-      key={index}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      className={`block w-full text-left p-2 rounded-lg mb-2 hover:bg-darkprimary transition-all ${
-        selectedCategory.category === item.category ? "bg-primary text-white" : ""
-      }`}
-      onClick={() => {
-        setSelectedCategory(item);
-        setShowSidebar(false);
-      }}
-    >
-      {item.category}
-    </motion.button>
-  ))}
-</motion.div>
+        {CategoryData.map((item, index) => (
+          <motion.button
+            key={index}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className={`block w-full text-left p-2 rounded-lg mb-2 hover:bg-darkprimary transition-all ${selectedCategory.category === item.category ? "bg-primary text-white" : ""
+              }`}
+            onClick={() => {
+              setSelectedCategory(item);
+              setShowSidebar(false);
+            }}
+          >
+            {item.category}
+          </motion.button>
+        ))}
+      </motion.div>
 
 
 
@@ -254,7 +252,7 @@ export default function CategorySidebar() {
               key={index}
               src={img}
               alt={`Banner ${index + 1}`}
-              className="w-full p-1 h-auto object-cover"
+              className="w-full p-1 h-auto rounded-2xl hover:scale-105 object-cover"
             />
           ))}
         </motion.div>
