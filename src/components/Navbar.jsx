@@ -80,7 +80,7 @@ const Navbar = () => {
         { name: "Others", link: "/directory/others" }
       ]
     },
-    { title: "List Your Business", link: "/list-business" },
+    { title: "List Business", link: "/list-business" },
     { title: "Requirements", link: "/post-requirements" },
     { 
       title: "Publications", 
@@ -179,7 +179,7 @@ const Navbar = () => {
               ) : (
                 <Link
                   to={item.link || "#"}
-                  className="text-gray-700 hover:text-primary transition-all font-medium text-sm px-3 py-2 rounded-md hover:bg-darkText"
+                  className="flex text-center text-gray-700 hover:text-primary transition-all font-medium text-sm px-3 py-2 rounded-md hover:bg-darkText"
                 >
                   {item.title}
                 </Link>
