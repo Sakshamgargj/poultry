@@ -141,7 +141,7 @@ export default function CategorySidebar() {
   const [showSidebar, setShowSidebar] = useState(false);
 
   return (
-    <div className="flex pt-10 flex-col md:flex-row min-h-screen">
+    <div className="flex pt-10 flex-col md:flex-row h-auto">
       {/* Mobile Sidebar Toggle Button */}
       <div className="md:hidden p-4">
         <button
@@ -157,16 +157,21 @@ export default function CategorySidebar() {
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className={`fixed inset-y-0 left-0 w-64 bg-yellow-200 md:bg-transparent p-4 border-r-2 border-gray-400 border-dotted transition-transform transform md:relative md:translate-x-0 ${showSidebar ? "translate-x-0" : "-translate-x-full"}`}
+        className={`fixed inset-y-0 left-0 w-64 bg-green-200 md:bg-transparent p-4 pt-16 border-r-2 border-gray-400 border-dotted overflow-y-auto transition-transform transform md:relative md:translate-x-0 ${showSidebar ? "translate-x-0" : "-translate-x-full"}`}
       >
         <h2 className="text-lg text-center font-mono text-darkprimary mb-4">Buyers Guide</h2>
+
         {CategoryData.map((item, index) => (
           <motion.button
             key={index}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className={`block w-full text-left p-2 rounded-lg mb-2 hover:bg-darkprimary transition-all ${selectedCategory.category === item.category ? "bg-primary text-white" : ""}`}
-            onClick={() => { setSelectedCategory(item); setShowSidebar(false); }}
+            className={`block w-full text-left p-2 rounded-lg mb-2 hover:bg-darkprimary transition-all ${selectedCategory.category === item.category ? "bg-primary text-white" : ""
+              }`}
+            onClick={() => {
+              setSelectedCategory(item);
+              setShowSidebar(false);
+            }}
           >
             {item.category}
           </motion.button>
@@ -197,30 +202,30 @@ export default function CategorySidebar() {
         </div>
 
       </div>
-      
+
       <div className="relative w-full md:w-1/4 h-auto overflow-hidden">
-      <motion.div
-        className="absolute w-full flex flex-col items-center"
-        animate={{ y: ["0%", "-100%"] }}
-        transition={{
-          duration: 12, 
-          ease: "linear",
-          repeat: Infinity,
-          repeatDelay: -5,
-        }}
-      >
-        {/* Show all images in sequence */}
-        {images.map((img, index) => (
-          <img
-            key={index}
-            src={img}
-            alt={`Banner ${index + 1}`}
-            className="w-full p-1 h-auto object-cover"
-          />
-        ))}
-      </motion.div>
-    </div>
-    
+        <motion.div
+          className="absolute w-full flex flex-col items-center"
+          animate={{ y: ["0%", "-100%"] }}
+          transition={{
+            duration: 12,
+            ease: "linear",
+            repeat: Infinity,
+            repeatDelay: -5,
+          }}
+        >
+          {/* Show all images in sequence */}
+          {images.map((img, index) => (
+            <img
+              key={index}
+              src={img}
+              alt={`Banner ${index + 1}`}
+              className="w-full p-1 h-auto object-cover"
+            />
+          ))}
+        </motion.div>
+      </div>
+
     </div>
   );
 }

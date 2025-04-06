@@ -1,6 +1,6 @@
 function ContactForm() {
     return (
-        <div className="flex select-none justify-center font-mono py-6 sm:py-12 items-center min-h-screen p-2 sm:p-6">
+        <div className="flex select-none justify-center font-mono py-6 sm:py-12 items-center h-auto p-2 sm:p-6">
             <div className="bg-white shadow-lg rounded-lg p-4 sm:p-8 w-full max-w-6xl border">
                 
                 {/* Heading */}
