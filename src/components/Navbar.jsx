@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
+import "../styles/marquee.css";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -110,10 +111,9 @@ const Navbar = () => {
     >
       <div className="px-4 lg:px-8 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="text-2xl font-bold text-yellow-600 flex items-center">
-          <span className="mr-2">🐔</span>
-          <span className="hidden sm:inline">POULTRY</span>
-          <span className="text-yellow-800 hidden sm:inline">DIGITAL</span>
+        <Link to="/" className="text-2xl font-bold flex items-center">
+          <span className="mr-2 text-primary">POULTRY</span>
+          <span className="text-darkText">DIGITAL</span>
         </Link>
 
         {/* Desktop Menu */}
@@ -129,8 +129,8 @@ const Navbar = () => {
                   <button
                     onClick={() => handleDropdownToggle(index)}
                     onMouseEnter={() => handleDropdownHover(index)}
-                    className={`text-gray-700 hover:text-yellow-600 transition-all font-medium text-sm px-2 py-2 rounded-md hover:bg-yellow-50 ${
-                      dropdownOpen === index ? "text-yellow-600 bg-yellow-50" : ""
+                    className={`text-gray-700 hover:text-primary transition-all font-medium text-sm px-2 py-2 rounded-md hover:bg-darkText ${
+                      dropdownOpen === index ? "text-primary bg-darkText" : ""
                     }`}
                   >
                     {item.title}
@@ -157,7 +157,7 @@ const Navbar = () => {
                           <Link
                             key={subIndex}
                             to={subItem.link}
-                            className="block px-4 py-2 text-gray-700 hover:bg-yellow-50 hover:text-yellow-600 transition-all"
+                            className="block px-4 py-2 text-gray-700 hover:bg-darkText hover:text-primary transition-all"
                             onClick={() => {
                               setDropdownOpen(null);
                               setClickedDropdown(false);
@@ -179,7 +179,7 @@ const Navbar = () => {
               ) : (
                 <Link
                   to={item.link || "#"}
-                  className="text-gray-700 hover:text-yellow-600 transition-all font-medium text-sm px-3 py-2 rounded-md hover:bg-yellow-50"
+                  className="text-gray-700 hover:text-primary transition-all font-medium text-sm px-3 py-2 rounded-md hover:bg-darkText"
                 >
                   {item.title}
                 </Link>
@@ -191,7 +191,7 @@ const Navbar = () => {
           <div className="flex items-center ml-4 space-x-4">
             <Link to="/login">
               <motion.span 
-                className="text-sm font-medium text-yellow-600 hover:text-yellow-800 transition-colors" 
+                className="text-sm font-medium text-primary hover:text-darkprimary transition-colors" 
                 whileHover={{ scale: 1.05 }} 
                 whileTap={{ scale: 0.95 }}
               >
@@ -201,7 +201,7 @@ const Navbar = () => {
             
             <Link to="/register">
               <motion.div 
-                className="px-4 py-2 text-white text-sm font-medium bg-yellow-600 rounded-md hover:bg-yellow-700 transition-colors" 
+                className="px-4 py-2 text-white text-sm font-medium bg-primary rounded-md hover:bg-darkprimary transition-colors" 
                 whileHover={{ scale: 1.05 }} 
                 whileTap={{ scale: 0.95 }}
               >
@@ -246,7 +246,7 @@ const Navbar = () => {
             className="fixed top-0 right-0 w-3/4 h-screen bg-white shadow-lg z-50 flex flex-col py-8 px-6 overflow-y-auto"
           >
             <div className="flex justify-between items-center mb-8">
-              <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold text-yellow-600">
+              <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold text-primary">
                 POULTRY DIGITAL
               </Link>
               <button
@@ -313,7 +313,7 @@ const Navbar = () => {
             <div className="mt-auto pt-6 gap-4">
               <Link to="/login" onClick={() => setIsMobileMenuOpen(false)}>
                 <motion.span 
-                  className="text-xl pb-2 font-medium text-yellow-600 hover:text-yellow-800 transition-colors block text-center" 
+                  className="text-xl pb-2 font-medium text-primary hover:text-darkprimary transition-colors block text-center" 
                   whileHover={{ scale: 1.05 }} 
                   whileTap={{ scale: 0.95 }}
                 >
@@ -323,7 +323,7 @@ const Navbar = () => {
               
               <Link to="/register" onClick={() => setIsMobileMenuOpen(false)}>
                 <motion.div 
-                  className="px-8 py-3 text-white text-lg font-medium bg-yellow-600 rounded-md hover:bg-yellow-700 transition-colors text-center" 
+                  className="px-8 py-3 text-white text-lg font-medium bg-darkprimary rounded-md transition-colors text-center" 
                   whileHover={{ scale: 1.05 }} 
                   whileTap={{ scale: 0.95 }}
                 >

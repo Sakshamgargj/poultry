@@ -69,7 +69,7 @@ function LoginPage() {
     };
 
     return (
-        <div className="flex select-none justify-center items-center min-h-screen bg-gray-100 p-4">
+        <div className="flex select-none justify-center items-center min-h-screen bg-white p-4">
             <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-md border">
                 <h2 className="text-center text-2xl font-bold text-gray-800">Welcome Back</h2>
                 <p className="text-center text-gray-600 mb-6">Login to your account</p>
@@ -107,16 +107,16 @@ function LoginPage() {
                                 type="checkbox"
                                 checked={rememberMe}
                                 onChange={handleRememberMe}
-                                className="mr-2"
+                                className="mr-2 accent-darkprimary"
                             />
                             <span className="text-gray-600">Remember me</span>
                         </div>
-                        <Link to="/forgotpassword" className="text-yellow-600 hover:underline">Forgot password?</Link>
+                        <Link to="/forgotpassword" className="text-primary hover:underline">Forgot password?</Link>
                     </div>
                     <button
                         type="submit"
                         className={`w-full py-2 rounded-md font-bold ${
-                            loading ? "bg-gray-400" : "bg-yellow-500 hover:bg-yellow-700"
+                            loading ? "bg-gray-400" : "bg-primary hover:bg-darkprimary"
                         } text-white`}
                         disabled={loading}
                     >
@@ -125,7 +125,7 @@ function LoginPage() {
                 </form>
 
                 <p className="text-center text-sm text-gray-600 mt-4">
-                    Don't have an account? <Link to="/register" className="text-yellow-600 hover:underline">Sign up</Link>
+                    Don't have an account? <Link to="/register" className="text-primary hover:underline">Sign up</Link>
                 </p>
             </div>
         </div>

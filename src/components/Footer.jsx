@@ -33,11 +33,11 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-white select-none font-mono dark:bg-yellow-700 text-white dark:text-white py-12">
+    <footer className="bg-white select-none font-mono dark:bg-darkprimary text-white dark:text-white py-12">
       <div className="container mx-auto px-4 grid md:grid-cols-3 gap-8">
         {/* Company Info */}
         <div>
-          <h3 className="text-2xl font-bold mb-4 text-yellow-600 dark:text-yellow-400">
+          <h3 className="text-2xl font-bold mb-4 text-primary dark:text-darkprimary">
             LOGOIMG
           </h3>
           <p className="text-gray-600  dark:text-gray-200">
@@ -53,7 +53,7 @@ const Footer = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className="block text-gray-600 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-400"
+                className="block text-gray-600 dark:text-gray-200 hover:text-darkprimary dark:hover:text-black"
               >
                 {link.name}
               </Link>
@@ -83,7 +83,7 @@ const Footer = () => {
       {/* Copyright */}
       <div className="text-mono pl-4 mt-8 pt-4 border-t border-gray-200 dark:border-gray-700">
         <p className="text-gray-200 dark:text-gray-200">
-          © {currentYear} LOGOIMG. All Rights Reserved.
+          © {currentYear} POULTRY DIGITAL. All Rights Reserved.
         </p>
       </div>
     </footer>

@@ -39,7 +39,7 @@ function EmailVerify() {
                 {!loading && error && (
                     <button 
                         onClick={verifyEmail} 
-                        className="mt-4 bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg"
+                        className="mt-4 bg-primary hover:bg-darkprimary text-white px-4 py-2 rounded-lg"
                     >
                         Retry Verification
                     </button>

@@ -119,15 +119,15 @@ function RegisterPage() {
                         />
                     </div>
                     <div className="flex items-center">
-                        <input type="checkbox" className="mr-2" required />
+                        <input type="checkbox" className="mr-2 accent-darkprimary" required />
                         <span className="text-gray-600 text-sm">
-                            I agree to the <a href="#" className="text-yellow-600 hover:underline">terms and conditions</a>
+                            I agree to the <a href="#" className="text-darkprimary hover:underline">terms and conditions</a>
                         </span>
                     </div>
                     <button
                         type="submit"
                         className={`w-full py-2 rounded-md font-bold ${
-                            loading ? "bg-gray-400" : "bg-yellow-500 hover:bg-yellow-700"
+                            loading ? "bg-gray-400" : "bg-primary hover:bg-darkprimary"
                         } text-white`}
                         disabled={loading}
                     >
@@ -136,7 +136,7 @@ function RegisterPage() {
                 </form>
 
                 <p className="text-center text-sm text-gray-600 mt-4">
-                    Already have an account? <Link to="/login" className="text-blue-600 hover:underline">Login</Link>
+                    Already have an account? <Link to="/login" className="text-darkprimary hover:underline">Login</Link>
                 </p>
             </div>
         </div>

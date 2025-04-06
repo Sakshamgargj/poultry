@@ -146,7 +146,7 @@ export default function CategorySidebar() {
       <div className="md:hidden p-4">
         <button
           onClick={() => setShowSidebar(!showSidebar)}
-          className="bg-yellow-500 text-white p-2 rounded-md flex items-center"
+          className="bg-primary text-white p-2 rounded-md flex items-center"
         >
           <Menu className="mr-2" /> Categories
         </button>
@@ -159,13 +159,13 @@ export default function CategorySidebar() {
         transition={{ duration: 0.5 }}
         className={`fixed inset-y-0 left-0 w-64 bg-yellow-200 md:bg-transparent p-4 border-r-2 border-gray-400 border-dotted transition-transform transform md:relative md:translate-x-0 ${showSidebar ? "translate-x-0" : "-translate-x-full"}`}
       >
-        <h2 className="text-lg text-center font-mono text-yellow-600 mb-4">Buyers Guide</h2>
+        <h2 className="text-lg text-center font-mono text-darkprimary mb-4">Buyers Guide</h2>
         {CategoryData.map((item, index) => (
           <motion.button
             key={index}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className={`block w-full text-left p-2 rounded-lg mb-2 bg-white hover:bg-yellow-300 transition-all ${selectedCategory.category === item.category ? "bg-yellow-500 text-white" : ""}`}
+            className={`block w-full text-left p-2 rounded-lg mb-2 hover:bg-darkprimary transition-all ${selectedCategory.category === item.category ? "bg-primary text-white" : ""}`}
             onClick={() => { setSelectedCategory(item); setShowSidebar(false); }}
           >
             {item.category}
@@ -175,7 +175,7 @@ export default function CategorySidebar() {
 
       {/* Main Content */}
       <div className="w-full text-lg text-center md:w-3/4 p-4">
-        <h2 className="text-2xl font-mono text-yellow-600 border-b-2 border-gray-400 border-dotted pb-2 mb-4">{selectedCategory.category}</h2>
+        <h2 className="text-2xl font-mono text-darkprimary border-b-2 border-gray-400 border-dotted pb-2 mb-4">{selectedCategory.category}</h2>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
           {selectedCategory.subcategories.map((sub, index) => (
             <div
@@ -191,7 +191,7 @@ export default function CategorySidebar() {
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.5 }}
               />
-              <p className="mt-3 font-mono text-center text-yellow-600">{sub.title}</p>
+              <p className="mt-3 font-mono text-center text-primary">{sub.title}</p>
             </div>
           ))}
         </div>
@@ -203,10 +203,10 @@ export default function CategorySidebar() {
         className="absolute w-full flex flex-col items-center"
         animate={{ y: ["0%", "-100%"] }}
         transition={{
-          duration: 12, // Slower animation for full cycle
+          duration: 12, 
           ease: "linear",
           repeat: Infinity,
-          repeatDelay: -5, // Small pause before restarting
+          repeatDelay: -5,
         }}
       >
         {/* Show all images in sequence */}

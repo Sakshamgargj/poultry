@@ -1,7 +1,6 @@
 import React from 'react'
 import Category from './Category';
 import ContactForm from './Contact';
-import Additional from './Additional';
 import "../styles/marquee.css";
 import Navbar from './Navbar';
 import HeroSection from './HeroSection';
@@ -12,7 +11,7 @@ function Home() {
         <div>
             <div className="marquee-container">
                 <div className="marquee-text">
-                    Welcome to <span className="text-blue-600">www.poultrydigital.com</span>,
+                    Welcome to <span className='text-primary'>www.poultrydigital.com</span>,
                     1st B2B Website & Online Business Directory Of Indian Poultry Industry
                 </div>
             </div>
