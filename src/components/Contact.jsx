@@ -94,7 +94,7 @@ function ContactForm() {
                     {/* Terms & Conditions */}
                     <div className="flex items-start sm:col-span-2">
                         <input type="checkbox" className="mr-2 mt-0.5 accent-darkprimary" />
-                        <span className="text-xs text-blue-600">
+                        <span className="text-xs text-darkprimary">
                             I hereby agree to all the terms and conditions
                         </span>
                     </div>

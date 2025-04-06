@@ -189,14 +189,14 @@ export default function CategorySidebar() {
         className={`fixed inset-y-0 left-0 w-64 bg-green-200 md:bg-transparent p-4 pt-16 md:pt-0 border-r-2 border-gray-400 border-dotted overflow-y-auto transition-transform transform md:relative md:translate-x-0 ${showSidebar ? "translate-x-0" : "-translate-x-full"
           }`}
       >
-        <h2 className="text-lg text-center font-mono text-darkprimary mb-4">Buyers Guide</h2>
+        <h2 className="text-xl text-center hover:text-xl hover:underline text-darkprimary mb-4">Buyers Guide</h2>
 
         {CategoryData.map((item, index) => (
           <motion.button
             key={index}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className={`block w-full text-left p-2 rounded-lg mb-2 hover:bg-darkprimary transition-all ${selectedCategory.category === item.category ? "bg-primary text-white" : ""
+            className={`block w-full text-left p-2 rounded-lg mb-2 hover:bg-darkprimary transition-all ${selectedCategory.category === item.category ? "bg-gradient-to-r from-primary to-darkprimary/60 text-white" : ""
               }`}
             onClick={() => {
               setSelectedCategory(item);
@@ -212,7 +212,7 @@ export default function CategorySidebar() {
 
       {/* Main Content */}
       <div className="w-full text-lg text-center md:w-3/4 p-4">
-        <h2 className="text-2xl font-mono text-darkprimary border-b-2 border-gray-400 border-dotted pb-2 mb-4">{selectedCategory.category}</h2>
+        <h2 className="text-2xl text-darkprimary border-b-2 border-gray-400 border-dotted pb-2 mb-4">{selectedCategory.category}</h2>
         <div className="grid grid-cols-3 md:grid-cols-5 gap-6">
           {selectedCategory.subcategories.map((sub, index) => (
             <div
