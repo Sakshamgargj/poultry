@@ -186,10 +186,10 @@ export default function CategorySidebar() {
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className={`fixed inset-y-0 left-0 w-64 bg-green-200 md:bg-transparent p-4 pt-16 md:pt-0 border-r-2 border-gray-400 border-dotted overflow-y-auto transition-transform transform md:relative md:translate-x-0 ${showSidebar ? "translate-x-0" : "-translate-x-full"
+        className={`fixed inset-y-0 left-0 w-64 bg-darkprimary md:bg-transparent p-4 pt-16 md:pt-0 border-r-2 border-gray-400 border-dotted overflow-y-auto transition-transform transform md:relative md:translate-x-0 ${showSidebar ? "translate-x-0" : "-translate-x-full"
           }`}
       >
-        <h2 className="text-xl text-center hover:text-xl hover:underline text-darkprimary mb-4">Buyers Guide</h2>
+        <h2 className="text-xl text-center hover:text-xl hover:underline sm:text-darkprimary text-white mb-4">Buyers Guide</h2>
 
         {CategoryData.map((item, index) => (
           <motion.button
