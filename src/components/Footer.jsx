@@ -33,7 +33,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-white px-4 md:px-8 select-none font-mono bg-gradient-to-r from-primary to-darkprimary text-white dark:text-white py-8">
+    <footer className="bg-white px-4 md:px-8 py-12 select-none font-mono bg-gradient-to-r from-primary to-darkprimary text-white dark:text-white">
       <div className="container mx-auto px-4 grid md:grid-cols-3 gap-8">
         {/* Company Info */}
         <div>
