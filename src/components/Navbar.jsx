@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import "../styles/marquee.css";
+import logo from '../assets/images/logo.jpg'
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -67,29 +68,29 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { title: "About", link: "/about" },
-    { title: "Services", link: "/services" },
+    { title: "ABOUT", link: "/about" },
+    { title: "SERVICES", link: "/services" },
     { 
-      title: "Industry Directory", 
+      title: "INDUSTRY DIRECTORY", 
       dropdown: [
-        { name: "Manufacturers", link: "/directory/manufacturers" },
-        { name: "Trader & Wholeseller", link: "/directory/trader" },
-        { name: "Service Provider", link: "/directory/service" },
-        { name: "Exporter", link: "/directory/exporter" },
-        { name: "Others", link: "/directory/others" }
+        { name: "MANUFACTURERS", link: "/directory/manufacturers" },
+        { name: "TRADER & WHOLESELLERS", link: "/directory/trader" },
+        { name: "SERVICE PROVIDER", link: "/directory/service" },
+        { name: "EXPORTER", link: "/directory/exporter" },
+        { name: "OTHERS", link: "/directory/others" }
       ]
     },
-    { title: "List Business", link: "/list-business" },
-    { title: "Requirements", link: "/post-requirements" },
+    { title: "LIST BUSINESS", link: "/list-business" },
+    { title: "REQUIREMENTS", link: "/post-requirements" },
     { 
-      title: "Publications", 
+      title: "PUBLICATIONS", 
       dropdown: [
-        { name: "Buying-Selling", link: "/publications/buying-selling" },
-        { name: "Job Posting", link: "/publications/career" },
+        { name: "BUYING-SELLING", link: "/publications/buying-selling" },
+        { name: "JOB POSTING", link: "/publications/career" },
       ]
     },
-    { title: "Membership Plan", link: "/membership" },
-    { title: "Contact Us", link: "/contact" },
+    { title: "MEMBERSHIP PLAN", link: "/membership" },
+    { title: "CONTACT US", link: "/contact" },
   ];
 
   // Function to allocate ref for dropdown
@@ -113,10 +114,13 @@ const Navbar = () => {
         <Link to="/" className="text-2xl font-bold flex items-center">
           <span className="mr-2 text-primary">POULTRY</span>
           <span className="text-darkText">DIGITAL</span>
+          {/* <img src={logo}                 
+            className="w-full h-10 md:h-32 object-cover rounded-md"
+          /> */}
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden lg:flex items-center space-x-1 xl:space-x-2">
+        <div className="hidden lg:flex items-center space-x-1 xl:space-x-4">
           {navItems.map((item, index) => (
             <div 
               key={index} 
@@ -194,7 +198,7 @@ const Navbar = () => {
                 whileHover={{ scale: 1.05 }} 
                 whileTap={{ scale: 0.95 }}
               >
-                Login
+                LOGIN
               </motion.span>
             </Link>
             
@@ -204,7 +208,7 @@ const Navbar = () => {
                 whileHover={{ scale: 1.05 }} 
                 whileTap={{ scale: 0.95 }}
               >
-                Register
+                REGISTER
               </motion.div>
             </Link>
           </div>
@@ -316,7 +320,7 @@ const Navbar = () => {
                   whileHover={{ scale: 1.05 }} 
                   whileTap={{ scale: 0.95 }}
                 >
-                  Login
+                  LOGIN
                 </motion.span>
               </Link>
               
@@ -326,7 +330,7 @@ const Navbar = () => {
                   whileHover={{ scale: 1.05 }} 
                   whileTap={{ scale: 0.95 }}
                 >
-                  Register
+                  REGISTER
                 </motion.div>
               </Link>
             </div>

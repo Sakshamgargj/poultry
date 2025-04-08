@@ -36,6 +36,9 @@ const HeroSection = () => {
         "Product showcase event postponed to May 15th",
         "Membership discount available until end of month",
         "New partnership with international poultry association announced",
+        "New partnership with international poultry association announced",
+        "New partnership with international poultry association announced",
+        "New partnership with international poultry association announced",
     ];
 
     // Initial video play then transition to images
@@ -79,9 +82,9 @@ const HeroSection = () => {
         <div className="w-full select-none ">
             {/* Main hero section with banners and updates */}
             <div className="w-full pt-16 px-4 md:px-8" style={{ height: "auto" }}>
-                <div className="flex flex-col pt-6 md:flex-row w-full">
+                <div className="flex flex-col pt-6 md:flex-row w-full space-x-8">
                     {/* Banner/Video section - full width on mobile, 2/3 width on desktop */}
-                    <div className="w-full md:w-2/3 relative overflow-hidden" style={{ height: "40vh" }}>
+                    <div className="w-full md:w-2/3 relative overflow-hidden" style={{ height: "50vh" }}>
                         {/* Video player */}
                         {!videoPlayed ? (
                             <video
