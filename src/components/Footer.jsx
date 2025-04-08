@@ -1,10 +1,11 @@
+import logo from '../assets/images/logo2.png'
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  FaFacebook, 
-  FaTwitter, 
-  FaInstagram, 
-  FaLinkedin 
+import {
+  FaFacebook,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedin
 } from 'react-icons/fa';
 
 const Footer = () => {
@@ -18,28 +19,34 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { 
-      icon: <FaFacebook />, 
-      url: 'https://facebook.com' 
+    {
+      icon: <FaFacebook />,
+      url: 'https://facebook.com'
     },
-    { 
-      icon: <FaTwitter />, 
-      url: 'https://twitter.com' 
+    {
+      icon: <FaTwitter />,
+      url: 'https://twitter.com'
     },
-    { 
-      icon: <FaLinkedin />, 
-      url: 'https://linkedin.com' 
+    {
+      icon: <FaLinkedin />,
+      url: 'https://linkedin.com'
     }
   ];
 
   return (
-    <footer className="bg-white px-4 md:px-8 py-12 select-none font-mono bg-gradient-to-r from-primary to-darkprimary text-white dark:text-white">
+    <footer className="px-4 md:px-8 py-12 select-none font-mono bg-gradient-to-r from-primary to-darkprimary text-white dark:text-white">
       <div className="container mx-auto px-4 grid md:grid-cols-3 gap-8">
         {/* Company Info */}
         <div>
-          <h3 className="text-2xl font-bold mb-4 text-white dark:text-white">
+          {/* <h3 className="text-2xl font-bold mb-4 text-white dark:text-white">
           POULTRY DIGITAL
-          </h3>
+          </h3> */}
+          <Link to="/" className="text-2xl font-bold flex items-center">
+            <img src={logo} width={10}
+              className="w-30 h-30 object-cover rounded-md"
+            />
+          </Link>
+
           <p className="text-gray-600  dark:text-gray-200">
             Delivering high-quality poultry products accessories and machines to your doorstep.
           </p>

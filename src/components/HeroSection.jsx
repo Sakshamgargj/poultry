@@ -37,8 +37,7 @@ const HeroSection = () => {
         "Membership discount available until end of month",
         "New partnership with international poultry association announced",
         "New partnership with international poultry association announced",
-        "New partnership with international poultry association announced",
-        "New partnership with international poultry association announced",
+        "Industry growth report now available for download",
     ];
 
     // Initial video play then transition to images
@@ -84,7 +83,7 @@ const HeroSection = () => {
             <div className="w-full pt-16 px-4 md:px-8" style={{ height: "auto" }}>
                 <div className="flex flex-col pt-6 md:flex-row w-full space-x-8">
                     {/* Banner/Video section - full width on mobile, 2/3 width on desktop */}
-                    <div className="w-full md:w-2/3 relative overflow-hidden" style={{ height: "50vh" }}>
+                    <div className="w-full md:w-2/3 relative overflow-hidden" style={{ height: "45vh" }}>
                         {/* Video player */}
                         {!videoPlayed ? (
                             <video

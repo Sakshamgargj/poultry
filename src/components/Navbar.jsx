@@ -105,18 +105,18 @@ const Navbar = () => {
     <nav
       className={`fixed select-none left-0 w-full z-50 transition-all duration-300 ${
         isScrolled 
-          ? "bg-white/95 top-0 shadow-lg py-2" 
-          : "bg-white backdrop-blur-lg py-1"
+          ? "bg-gradient-to-r from-primary to-darkprimary top-0 shadow-lg py-2" 
+          : "bg-gradient-to-r from-primary to-darkprimary backdrop-blur-lg py-1"
       }`}
     >
       <div className="px-4 lg:px-8 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="text-2xl font-bold flex items-center">
-          <span className="mr-2 text-primary">POULTRY</span>
-          <span className="text-darkText">DIGITAL</span>
-          {/* <img src={logo}                 
-            className="w-full h-10 md:h-32 object-cover rounded-md"
-          /> */}
+          {/* <span className="mr-2 text-primary">POULTRY</span>
+          <span className="text-darkText">DIGITAL</span> */}
+          <img src={logo}                 
+            className="w-full h-10 md:h-20 object-cover rounded-md"
+          />
         </Link>
 
         {/* Desktop Menu */}
@@ -132,8 +132,8 @@ const Navbar = () => {
                   <button
                     onClick={() => handleDropdownToggle(index)}
                     onMouseEnter={() => handleDropdownHover(index)}
-                    className={`text-gray-700 hover:text-primary transition-all font-medium text-sm px-2 py-2 rounded-md hover:bg-darkText ${
-                      dropdownOpen === index ? "text-primary bg-darkText" : ""
+                    className={`text-darkText hover:text-black hover:font-bold transition-all font-bold text-sm px-2 py-2 rounded-md hover:bg-primary/35 ${
+                      dropdownOpen === index ? "text-blue-400 bg-primary/35" : ""
                     }`}
                   >
                     {item.title}
@@ -160,7 +160,7 @@ const Navbar = () => {
                           <Link
                             key={subIndex}
                             to={subItem.link}
-                            className="block px-4 py-2 text-gray-700 hover:bg-darkText hover:text-primary transition-all"
+                            className="block px-4 py-2 text-darkText hover:bg-darkprimary/95 hover:text-black hover:font-bold transition-all"
                             onClick={() => {
                               setDropdownOpen(null);
                               setClickedDropdown(false);
@@ -182,7 +182,7 @@ const Navbar = () => {
               ) : (
                 <Link
                   to={item.link || "#"}
-                  className="flex text-center text-gray-700 hover:text-primary transition-all font-medium text-sm px-3 py-2 rounded-md hover:bg-darkText"
+                  className="flex text-center text-darkText hover:text-black hover:font-bold transition-all font-bold text-sm px-3 py-2 rounded-md hover:bg-primary/35"
                 >
                   {item.title}
                 </Link>
@@ -194,7 +194,7 @@ const Navbar = () => {
           <div className="flex items-center ml-4 space-x-4">
             <Link to="/login">
               <motion.span 
-                className="text-sm font-medium text-primary hover:text-darkprimary transition-colors" 
+                className="text-sm font-bold text-darkText hover:text-black transition-colors" 
                 whileHover={{ scale: 1.05 }} 
                 whileTap={{ scale: 0.95 }}
               >
@@ -204,7 +204,7 @@ const Navbar = () => {
             
             <Link to="/register">
               <motion.div 
-                className="px-4 py-2 text-white text-sm font-medium bg-primary rounded-md hover:bg-darkprimary transition-colors" 
+                className="px-4 py-2 text-white text-sm font-medium bg-primary rounded-md hover:bg-primary/70 transition-colors" 
                 whileHover={{ scale: 1.05 }} 
                 whileTap={{ scale: 0.95 }}
               >
@@ -248,9 +248,11 @@ const Navbar = () => {
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
             className="fixed top-0 right-0 w-3/4 h-screen bg-white shadow-lg z-50 flex flex-col py-8 px-6 overflow-y-auto"
           >
-            <div className="flex justify-between items-center mb-8">
+            <div className="flex justify-between items-center ">
               <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold text-primary">
-                POULTRY DIGITAL
+                <img src={logo}                 
+                  className="w-full h-30 object-cover rounded-md"
+                />
               </Link>
               <button
                 onClick={() => setIsMobileMenuOpen(false)}

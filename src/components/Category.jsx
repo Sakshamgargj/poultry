@@ -169,7 +169,7 @@ export default function CategorySidebar() {
   }, []);
 
   return (
-    <div className="flex select-none pt-10  px-4 md:px-8 flex-col md:flex-row h-auto">
+    <div className="flex select-none px-4 md:px-8 flex-col md:flex-row h-auto">
       {/* Mobile Sidebar Toggle Button */}
       <div className="md:hidden p-4">
         <button
