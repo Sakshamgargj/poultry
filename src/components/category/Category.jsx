@@ -1,13 +1,13 @@
 import { useState, useRef, useEffect } from "react";
 import { Menu } from "lucide-react";
 import { motion } from "framer-motion";
-import image1 from '../assets/images/img1.jpg';
-import image2 from '../assets/images/img2.jpg';
-import image3 from '../assets/images/img3.jpg';
-import image4 from '../assets/images/img4.jpg';
-import image5 from '../assets/images/img5.jpg';
-import image6 from '../assets/images/img6.jpg';
-import image7 from '../assets/images/img7.jpg';
+import image1 from '../../assets/images/img1.jpg';
+import image2 from '../../assets/images/img2.jpg';
+import image3 from '../../assets/images/img3.jpg';
+import image4 from '../../assets/images/img4.jpg';
+import image5 from '../../assets/images/img5.jpg';
+import image6 from '../../assets/images/img6.jpg';
+import image7 from '../../assets/images/img7.jpg';
 
 const images = [image1, image2, image3, image4, image5, image6, image7];
 
@@ -135,12 +135,21 @@ const CategoryData = [
     ]
   },
 ];
+const ITEMS_PER_PAGE = 15;
 
 export default function CategorySidebar() {
   const [selectedCategory, setSelectedCategory] = useState(CategoryData[0]);
   const [showSidebar, setShowSidebar] = useState(false);
   const sidebarRef = useRef();
+  const [currentPage, setCurrentPage] = useState(1);
 
+  const totalItems = selectedCategory.subcategories.length;
+  const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const currentItems = selectedCategory.subcategories.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+
+  const handlePrev = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
+  const handleNext = () => setCurrentPage((prev) => Math.min(prev + 1, totalPages));
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
@@ -186,38 +195,50 @@ export default function CategorySidebar() {
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className={`fixed inset-y-0 left-0 w-64 bg-darkprimary md:bg-transparent p-4 pt-16 md:pt-0 border-r-2 border-gray-400 border-dotted overflow-y-auto transition-transform transform md:relative md:translate-x-0 ${showSidebar ? "translate-x-0" : "-translate-x-full"
+        className={`fixed top-0 left-0 h-screen w-64 bg-darkprimary md:bg-transparent pt-16 md:pt-0 border-r-2 border-gray-400 border-dotted transition-transform transform md:relative md:translate-x-0 ${showSidebar ? "translate-x-0" : "-translate-x-full"
           }`}
       >
-        <h2 className="text-xl text-center hover:text-xl hover:underline sm:text-darkprimary text-white mb-4">Buyers Guide</h2>
+        <div className="flex flex-col h-full">
+          <div className="px-4 pb-2">
+            <h2 className="text-xl text-center text-white sm:text-darkprimary mb-2">
+              Buyers Guide
+            </h2>
+          </div>
 
-        {CategoryData.map((item, index) => (
-          <motion.button
-            key={index}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className={`block w-full text-left p-2 rounded-lg mb-2 hover:bg-darkprimary transition-all ${selectedCategory.category === item.category ? "bg-gradient-to-r from-primary to-darkprimary/60 text-white" : ""
-              }`}
-            onClick={() => {
-              setSelectedCategory(item);
-              setShowSidebar(false);
-            }}
-          >
-            {item.category}
-          </motion.button>
-        ))}
+          <div className="flex-1 overflow-y-auto px-4 pb-4">
+            {CategoryData.map((item, index) => (
+              <motion.button
+                key={index}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`block w-full text-left p-2 rounded-lg mb-2 hover:bg-darkprimary transition-all ${selectedCategory.category === item.category
+                  ? "bg-gradient-to-r from-primary to-darkprimary/60 text-white"
+                  : ""
+                  }`}
+                onClick={() => {
+                  setSelectedCategory(item);
+                  setShowSidebar(false);
+                }}
+              >
+                {item.category}
+              </motion.button>
+            ))}
+          </div>
+        </div>
       </motion.div>
-
 
 
       {/* Main Content */}
       <div className="w-full text-lg text-center md:w-3/4 p-4">
-        <h2 className="text-2xl text-darkprimary border-b-2 border-gray-400 border-dotted pb-2 mb-4">{selectedCategory.category}</h2>
+        <h2 className="text-2xl text-darkprimary border-b-2 border-gray-400 border-dotted pb-2 mb-4">
+          {selectedCategory.category}
+        </h2>
+
         <div className="grid grid-cols-3 md:grid-cols-5 gap-6">
-          {selectedCategory.subcategories.map((sub, index) => (
+          {currentItems.map((sub, index) => (
             <div
               key={index}
-              className="rounded-lg p-4 shadow-md hover:shadow-lg transition-all bg-white"
+              className="rounded-lg p-4 transition-all "
             >
               <motion.img
                 src={sub.image}
@@ -228,13 +249,35 @@ export default function CategorySidebar() {
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.5 }}
               />
-              <p className="mt-3 font-mono text-center text-darkText">{sub.title}</p>
+              <p className="mt-3 font-mono text-center text-sm text-darkText">{sub.title}</p>
             </div>
           ))}
         </div>
 
+        {totalPages > 1 && (
+          <div className="mt-6 flex justify-center items-center gap-4">
+            <button
+              onClick={handlePrev}
+              disabled={currentPage === 1}
+              className="px-3 py-1 bg-gray-300 hover:bg-gray-400 rounded disabled:opacity-50"
+            >
+              Prev
+            </button>
+            <span className="text-sm">
+              Page {currentPage} of {totalPages}
+            </span>
+            <button
+              onClick={handleNext}
+              disabled={currentPage === totalPages}
+              className="px-3 py-1 bg-gray-300 hover:bg-gray-400 rounded disabled:opacity-50"
+            >
+              Next
+            </button>
+          </div>
+        )}
       </div>
 
+      {/* Show all Ads Images in sequence */}
       <div className="relative w-full md:w-1/4 h-auto overflow-hidden">
         <motion.div
           className="absolute w-full flex flex-col items-center"
@@ -246,7 +289,6 @@ export default function CategorySidebar() {
             repeatDelay: -5,
           }}
         >
-          {/* Show all images in sequence */}
           {images.map((img, index) => (
             <img
               key={index}

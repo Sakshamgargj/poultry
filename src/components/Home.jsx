@@ -1,5 +1,5 @@
 import React from 'react'
-import Category from './Category';
+import Category from './category/Category';
 import ContactForm from './Contact';
 import HeroSection from './HeroSection';
 import BrandSection from './Brand';

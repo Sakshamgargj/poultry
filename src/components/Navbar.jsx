@@ -105,7 +105,7 @@ const Navbar = () => {
     <nav
       className={`fixed select-none left-0 w-full z-50 transition-all duration-300 ${
         isScrolled 
-          ? "bg-gradient-to-r from-primary to-darkprimary top-0 shadow-lg py-2" 
+          ? "bg-gradient-to-r from-primary to-darkprimary/90 top-0 shadow-lg py-2" 
           : "bg-gradient-to-r from-primary to-darkprimary backdrop-blur-lg py-1"
       }`}
     >
@@ -115,7 +115,7 @@ const Navbar = () => {
           {/* <span className="mr-2 text-primary">POULTRY</span>
           <span className="text-darkText">DIGITAL</span> */}
           <img src={logo}                 
-            className="w-full h-10 md:h-20 object-cover rounded-md"
+            className="w-full h-18 md:h-20 object-cover rounded-md"
           />
         </Link>
 
