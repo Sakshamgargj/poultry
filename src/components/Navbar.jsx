@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import "../styles/marquee.css";
-import logo from '../assets/images/logo.jpg'
+import logo from '../assets/images/logo2.png'
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);

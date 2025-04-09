@@ -1,19 +1,23 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { MdCampaign   } from 'react-icons/md'; 
 
-// Keep original imports
-import image1 from '../assets/images/banner22.jpg';
-import image2 from '../assets/images/banner11.jpg';
-import image3 from '../assets/images/img5.jpg';
+import image1 from '../assets/banner/banner1.jpg';
+import image2 from '../assets/banner/banner2.jpg';
+import image3 from '../assets/banner/banner3.jpg';
+import image4 from '../assets/banner/banner4.jpg';
 import video1 from '../assets/video/bannervideo.mp4';
+
 import SearchWithTiltImage from './SearchWithTiltImage';
+import axios from 'axios';
 
 const HeroSection = () => {
     const [currentBannerIndex, setCurrentBannerIndex] = useState(-1); // -1 for video, 0+ for images
     const [autoPlay, setAutoPlay] = useState(true);
     const [direction, setDirection] = useState(1);
     const [videoPlayed, setVideoPlayed] = useState(false);
+    const [updates, setUpdates] = useState([]);
 
     const banners = [
         {
@@ -27,10 +31,14 @@ const HeroSection = () => {
         {
             id: 3,
             image: image3,
+        },
+        {
+            id: 4,
+            image: image4,
         }
     ];
 
-    const updates = [
+    const update = [
         "New health protocols released for commercial poultry farms ",
         "Industry growth report now available for download",
         "Product showcase event postponed to May 15th",
@@ -40,6 +48,14 @@ const HeroSection = () => {
         "Industry growth report now available for download",
     ];
 
+    async function getupdates() {
+        await axios.get(import.meta.env.VITE_API_URL+'updateMsg/show').then(reply => {
+            setUpdates(reply.data.updateMsg)
+        })
+    }
+    useEffect(() => {
+        getupdates();
+    }, [])
     // Initial video play then transition to images
     useEffect(() => {
         if (!videoPlayed) {
@@ -118,7 +134,7 @@ const HeroSection = () => {
                                     <img
                                         src={banner.image}
                                         alt={`Banner ${banner.id}`}
-                                        className="absolute inset-0 w-full rounded-2xl h-full object-cover"
+                                        className="absolute inset-0 w-full rounded-2xl h-full p-1  "
                                     />
                                 </motion.div>
                             ))
@@ -153,9 +169,8 @@ const HeroSection = () => {
                                                 setDirection(index > currentBannerIndex ? 1 : -1);
                                                 setCurrentBannerIndex(index);
                                             }}
-                                            className={`w-2 h-2 rounded-full transition-all ${
-                                                currentBannerIndex === index ? 'bg-white scale-125' : 'bg-white/50'
-                                            }`}
+                                            className={`w-2 h-2 rounded-full transition-all ${currentBannerIndex === index ? 'bg-white scale-125' : 'bg-white/50'
+                                                }`}
                                         />
                                     ))}
                                 </div>
@@ -171,20 +186,19 @@ const HeroSection = () => {
 
                         <div className="flex flex-col md:h-[40vh] overflow-y-auto">
                             {updates.map((update, index) => (
-                                <div
-                                    key={index}
-                                    className="flex border-b border-gray-200 hover:bg-gray-50 transition-colors cursor-pointer"
-                                >
-                                    <div className="flex-grow p-3">
-                                        <p className="text-xs md:text-sm text-darkText">{update}</p>
+                                <div key={index} className="flex border-b border-gray-200 hover:bg-gray-50 transition-colors cursor-pointer" >
+                                    <div className="flex-grow p-3 flex justify-between items-center">
+                                        <p className="text-xs md:text-sm text-darkText">{update.update}</p>
+                                        {update.sign && <MdCampaign className="text-yellow-500 w-5 h-5 ml-2 -scale-x-100 hover:w-8" />}
                                     </div>
                                 </div>
                             ))}
                         </div>
+
                     </div>
 
                 </div>
-                <SearchWithTiltImage/>
+                <SearchWithTiltImage />
             </div>
         </div>
     );
