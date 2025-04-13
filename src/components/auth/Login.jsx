@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { connect } from "react-redux";
+import { setLogin } from "../../action";
 
-function LoginPage() {
+function LoginPage({commonData,setLogin}) {
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -51,8 +53,8 @@ function LoginPage() {
                 { withCredentials: true } // Enable cookies for authentication
             );
 
-            console.log("Login Successful:", response.data);
-
+            // console.log("Login Successful:", response.data);
+            setLogin(1)
             // Store email in cookie if "Remember Me" is checked
             if (rememberMe) {
                 setCookie("rememberedEmail", formData.email, { path: "/", maxAge: 7 * 24 * 60 * 60 }); // Store for 7 days
@@ -61,6 +63,7 @@ function LoginPage() {
             }
 
             navigate("/");
+            window.location.reload();
         } catch (err) {
             setError(err.response?.data?.message || "Login failed!");
         } finally {
@@ -84,7 +87,7 @@ function LoginPage() {
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
-                            className="w-full p-2 border rounded-md"
+                            className="w-full p-2 border rounded-md border-black shadow-lg focus:outline-none focus:ring-2 focus:ring-darkprimary text-darkText"
                             placeholder="Enter your email"
                             required
                         />
@@ -96,7 +99,7 @@ function LoginPage() {
                             name="password"
                             value={formData.password}
                             onChange={handleChange}
-                            className="w-full p-2 border rounded-md"
+                            className="w-full p-2 border rounded-md border-black shadow-lg focus:outline-none focus:ring-2 focus:ring-darkprimary text-darkText"
                             placeholder="Enter your password"
                             required
                         />
@@ -132,4 +135,10 @@ function LoginPage() {
     );
 }
 
-export default LoginPage;
+let connectToStore = (state) => ({ commonData: state });
+let dispatchToStore = (dispatch) => (
+    {
+        setLogin: (value) => dispatch(setLogin(value)),
+    }
+);
+export default connect(connectToStore, dispatchToStore)(LoginPage);

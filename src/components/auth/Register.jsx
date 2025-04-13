@@ -65,7 +65,7 @@ function RegisterPage() {
                             name="username"
                             value={formData.username}
                             onChange={handleChange}
-                            className="w-full p-2 border rounded-md"
+                            className="w-full p-2 border rounded-md border-black shadow-lg focus:outline-none focus:ring-2 focus:ring-darkprimary text-darkText"
                             placeholder="Enter your full name"
                             required
                         />
@@ -77,7 +77,7 @@ function RegisterPage() {
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
-                            className="w-full p-2 border rounded-md"
+                            className="w-full p-2 border rounded-md border-black shadow-lg focus:outline-none focus:ring-2 focus:ring-darkprimary text-darkText"
                             placeholder="Enter your email"
                             required
                         />
@@ -89,7 +89,7 @@ function RegisterPage() {
                             name="address"
                             value={formData.address}
                             onChange={handleChange}
-                            className="w-full p-2 border rounded-md"
+                            className="w-full p-2 border rounded-md border-black shadow-lg focus:outline-none focus:ring-2 focus:ring-darkprimary text-darkText"
                             placeholder="Enter your address"
                             required
                         />
@@ -101,7 +101,7 @@ function RegisterPage() {
                             name="password"
                             value={formData.password}
                             onChange={handleChange}
-                            className="w-full p-2 border rounded-md"
+                            className="w-full p-2 border rounded-md border-black shadow-lg focus:outline-none focus:ring-2 focus:ring-darkprimary text-darkText"
                             placeholder="Enter your password"
                             required
                         />
@@ -113,7 +113,7 @@ function RegisterPage() {
                             name="confirmPassword"
                             value={formData.confirmPassword}
                             onChange={handleChange}
-                            className="w-full p-2 border rounded-md"
+                            className="w-full p-2 border rounded-md border-black shadow-lg focus:outline-none focus:ring-2 focus:ring-darkprimary text-darkText"
                             placeholder="Confirm your password"
                             required
                         />

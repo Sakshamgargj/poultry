@@ -1,19 +1,137 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import "../styles/marquee.css";
 import logo from '../assets/images/logo2.png'
+import { connect } from "react-redux";
+import axios from "axios";
+import { setLogin } from "../action";
 
-const Navbar = () => {
+const Navbar = ({ commonData, setLogin }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(null);
   const [clickedDropdown, setClickedDropdown] = useState(false);
+  const navigate = useNavigate();
 
   const mobileMenuRef = useRef(null);
   const dropdownRefs = useRef([]);
 
+  function f1() {
+    return (
+      <div className="flex items-center ml-4 space-x-4">
+        <Link to="/profilePage">
+          <motion.span
+            className="text-sm font-bold text-darkText hover:text-black transition-colors"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            PROFILE
+          </motion.span>
+        </Link>
+
+        <div >
+          <motion.button
+            className="px-4 py-2 text-white text-sm font-medium bg-primary rounded-md hover:bg-primary/70 transition-colors"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={doLogout}
+          >
+            LOGOUT
+          </motion.button>
+        </div>
+      </div>
+    )
+  }
+  function f2() {
+    return (
+      <div className="flex items-center ml-4 space-x-4">
+        <Link to="/login">
+          <motion.span
+            className="text-sm font-bold text-darkText hover:text-black transition-colors"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            LOGIN
+          </motion.span>
+        </Link>
+
+        <Link to="/register">
+          <motion.div
+            className="px-4 py-2 text-white text-sm font-medium bg-primary rounded-md hover:bg-primary/70 transition-colors"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            REGISTER
+          </motion.div>
+        </Link>
+      </div>
+    )
+  }
+  function f3() {
+    return (
+      <div className="mt-auto pt-6 gap-4">
+        <Link to="/profilePage" onClick={() => setIsMobileMenuOpen(false)}>
+          <motion.span
+            className="text-xl pb-2 font-medium text-primary hover:text-darkprimary transition-colors block text-center"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            PROFILE
+          </motion.span>
+        </Link>
+
+        <div onClick={() => setIsMobileMenuOpen(false)}>
+          <motion.div onClick={doLogout}
+            className="px-8 py-3 text-white text-lg font-medium bg-darkprimary rounded-md transition-colors text-center"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            LOGOUT
+          </motion.div>
+        </div>
+      </div>
+    )
+
+  }
+  function f4() {
+    return (
+      <div className="mt-auto pt-6 gap-4">
+        <Link to="/login" onClick={() => setIsMobileMenuOpen(false)}>
+          <motion.span
+            className="text-xl pb-2 font-medium text-primary hover:text-darkprimary transition-colors block text-center"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            LOGIN
+          </motion.span>
+        </Link>
+
+        <Link to="/register" onClick={() => setIsMobileMenuOpen(false)}>
+          <motion.div
+            className="px-8 py-3 text-white text-lg font-medium bg-darkprimary rounded-md transition-colors text-center"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            REGISTER
+          </motion.div>
+        </Link>
+      </div>
+    )
+  }
+  async function doLogout() {
+    let response = await axios.post(
+      import.meta.env.VITE_API_URL + `user/logout`,
+      {},
+      { withCredentials: true }
+    );
+    if (response.status === 200) {
+      setLogin(0);
+    }
+    // console.log("Logout");
+    navigate("/");
+  }
   // Handle Scroll Effect
   useEffect(() => {
     const handleScroll = () => {
@@ -70,8 +188,8 @@ const Navbar = () => {
   const navItems = [
     { title: "ABOUT", link: "/about" },
     { title: "SERVICES", link: "/services" },
-    { 
-      title: "INDUSTRY DIRECTORY", 
+    {
+      title: "INDUSTRY DIRECTORY",
       dropdown: [
         { name: "MANUFACTURERS", link: "/directory/manufacturers" },
         { name: "TRADER & WHOLESELLERS", link: "/directory/trader" },
@@ -82,8 +200,8 @@ const Navbar = () => {
     },
     { title: "LIST BUSINESS", link: "/list-business" },
     { title: "REQUIREMENTS", link: "/post-requirements" },
-    { 
-      title: "PUBLICATIONS", 
+    {
+      title: "PUBLICATIONS",
       dropdown: [
         { name: "BUYING-SELLING", link: "/publications/buying-selling" },
         { name: "JOB POSTING", link: "/publications/career" },
@@ -93,28 +211,20 @@ const Navbar = () => {
     { title: "CONTACT US", link: "/contact" },
   ];
 
-  // Function to allocate ref for dropdown
-  const allocateDropdownRef = (index) => {
-    if (!dropdownRefs.current[index]) {
-      dropdownRefs.current[index] = React.createRef();
-    }
-    return dropdownRefs.current[index];
-  };
 
   return (
     <nav
-      className={`fixed select-none left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled 
-          ? "bg-gradient-to-r from-primary to-darkprimary/90 top-0 shadow-lg py-2" 
-          : "bg-gradient-to-r from-primary to-darkprimary backdrop-blur-lg py-1"
-      }`}
+      className={`fixed select-none left-0 w-full z-50 transition-all duration-300 ${isScrolled
+        ? "bg-gradient-to-r from-primary to-darkprimary/90 top-0 shadow-lg py-2"
+        : "bg-gradient-to-r from-primary to-darkprimary backdrop-blur-lg py-1"
+        }`}
     >
       <div className="px-4 lg:px-8 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="text-2xl font-bold flex items-center">
           {/* <span className="mr-2 text-primary">POULTRY</span>
           <span className="text-darkText">DIGITAL</span> */}
-          <img src={logo}                 
+          <img src={logo}
             className="w-full h-18 md:h-20 object-cover rounded-md"
           />
         </Link>
@@ -122,8 +232,8 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center space-x-1 xl:space-x-4">
           {navItems.map((item, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="relative"
               ref={item.dropdown ? (ref) => dropdownRefs.current[index] = ref : null}
             >
@@ -132,9 +242,8 @@ const Navbar = () => {
                   <button
                     onClick={() => handleDropdownToggle(index)}
                     onMouseEnter={() => handleDropdownHover(index)}
-                    className={`text-darkText hover:text-black hover:font-bold transition-all font-bold text-sm px-2 py-2 rounded-md hover:bg-primary/35 ${
-                      dropdownOpen === index ? "text-blue-400 bg-primary/35" : ""
-                    }`}
+                    className={`text-darkText hover:text-black hover:font-bold transition-all font-bold text-sm px-2 py-2 rounded-md hover:bg-primary/35 ${dropdownOpen === index ? "text-blue-400 bg-primary/35" : ""
+                      }`}
                   >
                     {item.title}
                     {/* <FaChevronDown 
@@ -143,7 +252,7 @@ const Navbar = () => {
                       }`} 
                     /> */}
                   </button>
-                  
+
                   <AnimatePresence>
                     {dropdownOpen === index && (
                       <motion.div
@@ -155,12 +264,12 @@ const Navbar = () => {
                         onMouseLeave={() => !clickedDropdown && setDropdownOpen(null)}
                       >
                         <div className="absolute -top-2 left-4 w-4 h-4 bg-white rotate-45 border-t border-l border-gray-100"></div>
-                        
+
                         {item.dropdown.map((subItem, subIndex) => (
                           <Link
                             key={subIndex}
                             to={subItem.link}
-                            className="block px-4 py-2 text-darkText hover:bg-darkprimary/95 hover:text-black hover:font-bold transition-all"
+                            className="block px-4 py-2 text-darkText hover:bg-gradient-to-r from-primary to-darkprimary hover:text-black hover:font-bold transition-all"
                             onClick={() => {
                               setDropdownOpen(null);
                               setClickedDropdown(false);
@@ -189,29 +298,9 @@ const Navbar = () => {
               )}
             </div>
           ))}
-          
+
           {/* Auth Buttons */}
-          <div className="flex items-center ml-4 space-x-4">
-            <Link to="/login">
-              <motion.span 
-                className="text-sm font-bold text-darkText hover:text-black transition-colors" 
-                whileHover={{ scale: 1.05 }} 
-                whileTap={{ scale: 0.95 }}
-              >
-                LOGIN
-              </motion.span>
-            </Link>
-            
-            <Link to="/register">
-              <motion.div 
-                className="px-4 py-2 text-white text-sm font-medium bg-primary rounded-md hover:bg-primary/70 transition-colors" 
-                whileHover={{ scale: 1.05 }} 
-                whileTap={{ scale: 0.95 }}
-              >
-                REGISTER
-              </motion.div>
-            </Link>
-          </div>
+          {commonData.islogin === 0 ? f2() : f1()}
         </div>
 
         {/* Mobile Auth Buttons */}
@@ -250,7 +339,7 @@ const Navbar = () => {
           >
             <div className="flex justify-between items-center ">
               <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold text-primary">
-                <img src={logo}                 
+                <img src={logo}
                   className="w-full h-30 object-cover rounded-md"
                 />
               </Link>
@@ -315,27 +404,8 @@ const Navbar = () => {
             </div>
 
             {/* Mobile Auth Buttons */}
-            <div className="mt-auto pt-6 gap-4">
-              <Link to="/login" onClick={() => setIsMobileMenuOpen(false)}>
-                <motion.span 
-                  className="text-xl pb-2 font-medium text-primary hover:text-darkprimary transition-colors block text-center" 
-                  whileHover={{ scale: 1.05 }} 
-                  whileTap={{ scale: 0.95 }}
-                >
-                  LOGIN
-                </motion.span>
-              </Link>
-              
-              <Link to="/register" onClick={() => setIsMobileMenuOpen(false)}>
-                <motion.div 
-                  className="px-8 py-3 text-white text-lg font-medium bg-darkprimary rounded-md transition-colors text-center" 
-                  whileHover={{ scale: 1.05 }} 
-                  whileTap={{ scale: 0.95 }}
-                >
-                  REGISTER
-                </motion.div>
-              </Link>
-            </div>
+            {commonData.islogin === 0 ? f4() : f3()}
+
           </motion.div>
         )}
       </AnimatePresence>
@@ -343,4 +413,10 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+let connectToStore = (state) => ({ commonData: state });
+let dispatchToStore = (dispatch) => (
+  {
+    setLogin: (value) => dispatch(setLogin(value)),
+  }
+);
+export default connect(connectToStore, dispatchToStore)(Navbar);
