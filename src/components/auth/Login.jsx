@@ -72,7 +72,7 @@ function LoginPage({commonData,setLogin}) {
     };
 
     return (
-        <div className="flex select-none justify-center items-center min-h-screen bg-white p-4">
+        <div className="flex select-none justify-center items-center h-auto bg-white p-20">
             <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-md border">
                 <h2 className="text-center text-2xl font-bold text-gray-800">Welcome Back</h2>
                 <p className="text-center text-gray-600 mb-6">Login to your account</p>

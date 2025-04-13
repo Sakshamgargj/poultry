@@ -10,7 +10,7 @@ import {
     ArrowRight,
 } from 'lucide-react';
 
-const ITEMS_PER_PAGE = 12;
+const ITEMS_PER_PAGE = 6;
 
 function Product() {
     const { id } = useParams();
@@ -58,7 +58,7 @@ function Product() {
 
     return (
         <motion.div
-            className="w-full max-w-7xl mx-auto pt-26 p-6 bg-white h-auto"
+            className="w-full max-w-7xl mx-auto p-6 bg-white h-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}

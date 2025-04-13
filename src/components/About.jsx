@@ -3,7 +3,7 @@ import img from '../assets/images/logo.jpeg';
 
 function AboutPage() {
     return (
-        <div className="min-h-screen select-none bg-gray-100 pt-20">
+        <div className="min-h-screen select-none bg-gray-100 ">
             <div className="w-screen bg-white shadow-lg p-8">
                 <img src={image} alt="About Banner" className="w-full h-56 object-cover rounded-lg mb-6" />
                 <p className="text-gray-600 text-center mb-6">
@@ -16,6 +16,17 @@ function AboutPage() {
                             Our mission is to revolutionize the industry by offering innovative and customer-centric solutions that
                             cater to diverse needs.
                         </p>
+                        <p className="text-gray-600">
+                            Our mission is to revolutionize the industry by offering innovative and customer-centric solutions that
+                            cater to diverse needs.
+                        </p>
+                        <p className="text-gray-600">
+                            Our mission is to revolutionize the industry solutions that cater to diverse needs.
+                        </p>
+                        <p className="text-gray-600">
+                            Our mission is to revolutionize the industry by offering innovative and customer-centric solutions that
+                            cater to diverse needs.
+                        </p>
                     </div>
                     <div>
                         <h2 className="text-xl font-semibold text-gray-700 mb-2">Our Vision</h2>
@@ -23,6 +34,23 @@ function AboutPage() {
                             We envision a world where technology and creativity come together to enhance everyday experiences and drive
                             success.
                         </p>
+                        <p className="text-gray-600">
+                            We envision a world where technology and drive
+                            success.
+                        </p>
+                        <p className="text-gray-600">
+                            We envision a world where technology and creativity come together to enhance everyday experiences and drive
+                            success.
+                        </p>
+                        <p className="text-gray-600">
+                            We envision a world where technology and creativity come together to enhance everyday experiences and drive
+                            success.
+                        </p>
+                        <p className="text-gray-600">
+                            We envision a world where technology and creativity come together to enhance everyday experiences and drive
+                            success.
+                        </p>
+                        
                     </div>
                 </div>
                 <div className="mt-6 text-center">

@@ -214,9 +214,9 @@ const Navbar = ({ commonData, setLogin }) => {
 
   return (
     <nav
-      className={`fixed select-none left-0 w-full z-50 transition-all duration-300 ${isScrolled
-        ? "bg-gradient-to-r from-primary to-darkprimary/90 top-0 shadow-lg py-2"
-        : "bg-gradient-to-r from-primary to-darkprimary backdrop-blur-lg py-1"
+      className={` select-none left-0 w-full z-50 transition-all duration-300 ${isScrolled
+        ? "bg-gradient-to-r from-primary to-darkprimary/90 top-0 fixed shadow-lg py-2"
+        : "bg-gradient-to-r from-primary to-darkprimary relative backdrop-blur-lg py-1"
         }`}
     >
       <div className="px-4 lg:px-8 flex items-center justify-between">
@@ -260,7 +260,7 @@ const Navbar = ({ commonData, setLogin }) => {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.95 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute left-0 top-full mt-1 bg-white shadow-xl rounded-lg w-56 py-2 z-20 border border-gray-100"
+                        className="absolute left-0 top-full mt-1 bg-white shadow-xl rounded-lg w-56 py-2 z-0 border border-gray-100"
                         onMouseLeave={() => !clickedDropdown && setDropdownOpen(null)}
                       >
                         <div className="absolute -top-2 left-4 w-4 h-4 bg-white rotate-45 border-t border-l border-gray-100"></div>

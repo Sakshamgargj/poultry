@@ -81,7 +81,7 @@ export default function CategorySidebar() {
   }, []);
 
   return (
-    <div className="flex select-none px-4 md:px-8 flex-col md:flex-row h-auto">
+    <div className="flex py-2 select-none px-4 md:px-8 flex-col md:flex-row h-auto">
       {/* Mobile Toggle */}
       <div className="md:hidden p-4">
         <button
@@ -137,7 +137,7 @@ export default function CategorySidebar() {
             {currentItems.map((sub, index) => (
               <div
                 key={index}
-                className="relative group rounded-lg p-1 md:p-3 bg-white transition-all"
+                className="md:relative group rounded-lg p-1 md:p-3 bg-white transition-all"
               >
                 <Link
                   to={`/product/${sub._id}`}>
