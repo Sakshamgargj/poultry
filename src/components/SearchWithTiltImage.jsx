@@ -41,6 +41,7 @@ const SearchWithTiltImage = () => {
     }
   }, [isHovering]);
 
+//  hidden sm:inline
   return (
     <div 
       className="h-auto flex items-center justify-center px-4 pb-16 overflow-hidden"
@@ -48,18 +49,18 @@ const SearchWithTiltImage = () => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="container hidden sm:inline mx-auto max-w-6xl">
+      <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Left Content: Text and Search */}
           <div className="w-full lg:w-1/2 space-y-4">
             <div className="space-y-2">
-              <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-darkText">
+              <h1 className="text-2xl md:text-4xl font-bold tracking-tight text-darkText">
                 Discover <br/>
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-darkprimary">
                   Poultry Digital
                 </span>
               </h1>
-              <p className="text-lg text-gray-700 max-w-md">
+              <p className="text-sm md:text-lg text-gray-700 max-w-md">
                 The future of livestock management through cutting-edge digital solutions
               </p>
             </div>
@@ -91,7 +92,7 @@ const SearchWithTiltImage = () => {
               className="perspective-1000 relative w-full max-w-md"
               style={{
                 transform: isHovering ? 
-                  `perspective(1000px) rotateY(${position.x * 30}deg) rotateX(${-position.y * 20}deg)` : 
+                  `perspective(1000px) rotateY(${-position.x * 30}deg) rotateX(${position.y * 20}deg)` : 
                   'perspective(1000px) rotateY(0deg) rotateX(0deg)',
                 transition: isHovering ? 'transform 0.1s ease-out' : 'transform 0.5s ease-out'
               }}
@@ -120,7 +121,7 @@ const SearchWithTiltImage = () => {
               ></div>
               
               <div 
-                className="absolute -bottom-8 -left-8 w-64 h-64 bg-gradient-to-r from-green-500 to-green-900 rounded-full opacity-20 blur-xl"
+                className="absolute -bottom-8 -left-8 w-64 h-48 bg-gradient-to-r from-green-500 to-green-900 rounded-full opacity-20 blur-xl"
                 style={{
                   transform: `translateZ(-80px) translate(${position.x * -40}px, ${position.y * -40}px)`,
                   transition: isHovering ? 'transform 0.1s ease-out' : 'transform 0.5s ease-out'

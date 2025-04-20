@@ -4,6 +4,7 @@ import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import "../styles/marquee.css";
 import logo from '../assets/images/logo2.png'
+import logo1 from '../assets/images/Poultrydigitallogo.jpg'
 import { connect } from "react-redux";
 import axios from "axios";
 import { setLogin } from "../action";
@@ -214,9 +215,9 @@ const Navbar = ({ commonData, setLogin }) => {
 
   return (
     <nav
-      className={` select-none left-0 w-full z-50 transition-all duration-300 ${isScrolled
-        ? "bg-gradient-to-r from-primary to-darkprimary/90 top-0 fixed shadow-lg py-2"
-        : "bg-gradient-to-r from-primary to-darkprimary relative backdrop-blur-lg py-1"
+      className={` select-none left-0 w-full z-50 transition-all duration-700 ${isScrolled
+        ? "bg-gradient-to-r from-primary to-darkprimary/90 top-0 fixed shadow-lg"
+        : "bg-gradient-to-r from-primary to-darkprimary relative backdrop-blur-lg"
         }`}
     >
       <div className="px-4 lg:px-8 flex items-center justify-between">
@@ -224,8 +225,8 @@ const Navbar = ({ commonData, setLogin }) => {
         <Link to="/" className="text-2xl font-bold flex items-center">
           {/* <span className="mr-2 text-primary">POULTRY</span>
           <span className="text-darkText">DIGITAL</span> */}
-          <img src={logo}
-            className="w-full h-18 md:h-20 object-cover rounded-md"
+          <img src={logo1}
+            className="w-full h-18 object-cover"
           />
         </Link>
 
@@ -335,7 +336,7 @@ const Navbar = ({ commonData, setLogin }) => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed top-0 right-0 w-3/4 h-screen bg-white shadow-lg z-50 flex flex-col py-8 px-6 overflow-y-auto"
+            className="fixed top-0 right-0 w-3/4 h-screen bg-white shadow-lg z-50 flex flex-col pb-12 px-6 overflow-y-auto"
           >
             <div className="flex justify-between items-center ">
               <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold text-primary">
@@ -345,7 +346,7 @@ const Navbar = ({ commonData, setLogin }) => {
               </Link>
               <button
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-gray-600 hover:bg-gray-100 p-2 rounded-full"
+                className="text-gray-600 hover:bg-gray-100 rounded-full"
               >
                 <FaTimes size={20} />
               </button>

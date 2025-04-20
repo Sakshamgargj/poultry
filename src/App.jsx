@@ -9,10 +9,9 @@ import ContactForm from "./components/Contact";
 import AboutPage from "./components/About";
 import { useEffect } from "react";
 import EmailVerify from "./components/Verify";
-import "./styles/marquee.css";
-
 import ProfilePage from './components/Profile';
 import Product from "./components/category/Product";
+import Tagline from "./components/Tagline";
 function App() {
 
   useEffect(() => {
@@ -26,12 +25,7 @@ function App() {
 
   return (
     <div>
-      <div className="marquee-container">
-        <div className="marquee-text">
-          Welcome to <span className='text-primary'>www.poultrydigital.com</span>,
-          1st B2B Website & Online Business Directory Of Indian Poultry Industry
-        </div>
-      </div>
+      <Tagline/>
       <Navbar />
       <Routes>
         <Route Route path="/" element={<Home />} />

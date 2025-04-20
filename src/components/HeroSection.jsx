@@ -3,10 +3,15 @@ import { motion } from 'framer-motion';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { MdCampaign   } from 'react-icons/md'; 
 
-import image1 from '../assets/banner/banner1.jpg';
-import image2 from '../assets/banner/banner2.jpg';
-import image3 from '../assets/banner/banner3.jpg';
-import image4 from '../assets/banner/banner4.jpg';
+// import image1 from '../assets/banner/WebsiteBanner1.jpg';
+// import image2 from '../assets/banner/WebsiteBanner2.jpg';
+// import image3 from '../assets/banner/WebsiteBanner3.jpg';
+// import image4 from '../assets/banner/image.png';
+import image1 from '../assets/banner2/2.jpg';
+import image2 from '../assets/banner2/3.jpg';
+import image3 from '../assets/banner2/4.jpg';
+import image4 from '../assets/banner2/5.jpg';
+import image5 from '../assets/banner2/6.jpg';
 import video1 from '../assets/video/bannervideo.mp4';
 
 import SearchWithTiltImage from './SearchWithTiltImage';
@@ -35,6 +40,10 @@ const HeroSection = () => {
         {
             id: 4,
             image: image4,
+        },
+        {
+            id: 5,
+            image: image5,
         }
     ];
 
@@ -62,7 +71,7 @@ const HeroSection = () => {
             setTimeout(() => {
                 setVideoPlayed(true);
                 setCurrentBannerIndex(0);
-            }, 10000); // Play video for 10 seconds before switching to images
+            }, 50000); // Play video for 10 seconds before switching to images
             return;
         }
 
@@ -96,15 +105,15 @@ const HeroSection = () => {
     return (
         <div className="w-full select-none ">
             {/* Main hero section with banners and updates */}
-            <div className="w-full px-4 md:px-8" style={{ height: "auto" }}>
-                <div className="flex flex-col md:flex-row w-full space-x-8">
+            <div className="w-full md:px-8" style={{ height: "auto" }}>
+                <div className="flex flex-col md:flex-row w-full space-x-6">
                     {/* Banner/Video section - full width on mobile, 2/3 width on desktop */}
-                    <div className="w-full md:w-2/3 relative overflow-hidden" style={{ height: "45vh" }}>
+                    <div className="w-full md:w-2/3 relative overflow-hidden h-[22vh] md:h-[45vh] ">
                         {/* Video player */}
                         {!videoPlayed ? (
                             <video
                                 src={video1}
-                                className="absolute inset-0 w-full h-full rounded-2xl object-cover"
+                                className="absolute inset-0 w-full h-full rounded-2xl border-0 "
                                 autoPlay
                                 muted
                                 playsInline
@@ -114,7 +123,7 @@ const HeroSection = () => {
                             banners.map((banner, index) => (
                                 <motion.div
                                     key={banner.id}
-                                    className="absolute inset-0 w-full h-full"
+                                    className="absolute inset-0 w-auto h-full object-contain "
                                     initial={{
                                         x: direction > 0 ? "100%" : "-100%",
                                         opacity: 0
@@ -134,7 +143,7 @@ const HeroSection = () => {
                                     <img
                                         src={banner.image}
                                         alt={`Banner ${banner.id}`}
-                                        className="absolute inset-0 w-full rounded-2xl h-full p-1  "
+                                        className="absolute inset-0 w-full rounded-2xl h-full p-1 object-fill "
                                     />
                                 </motion.div>
                             ))
@@ -179,15 +188,15 @@ const HeroSection = () => {
                     </div>
 
                     {/* Updates section - full width on mobile, 1/3 width on desktop */}
-                    <div className="w-full md:w-1/3 border-t md:border-t-0 rounded-2xl border-gray-200 bg-white">
+                    <div className="w-full md:w-1/3 px-4 border-t md:border-t-0 rounded-2xl border-gray-200 bg-white">
                         <div className="text-center py-2 rounded-2xl border-b border-gray-400">
                             <h3 className="font-bold text-sm md:text-base text-darkprimary">IMPORTANT UPDATES</h3>
                         </div>
 
-                        <div className="flex flex-col md:h-[40vh] overflow-y-auto">
+                        <div className="flex flex-col h-[40vh] overflow-y-auto">
                             {updates.map((update, index) => (
                                 <div key={index} className="flex border-b border-gray-200 hover:bg-gray-50 transition-colors cursor-pointer" >
-                                    <div className="flex-grow p-3 flex justify-between items-center">
+                                    <div className="flex-grow p-2 md:p-3 flex justify-between items-center">
                                         <p className="text-xs md:text-sm text-darkText">{update.update}</p>
                                         {update.sign && <MdCampaign className="text-yellow-500 w-5 h-5 ml-2 -scale-x-100 hover:w-8" />}
                                     </div>

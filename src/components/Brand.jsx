@@ -49,7 +49,7 @@ const BrandSection = () => {
         Our Clients
       </h2>
 
-      <div className="max-w-8xl mx-auto px-2 sm:px-4">
+      <div className="max-w-8xl mx-auto px-2">
         {/* Forward Scroll */}
         <div className="mb-4 sm:mb-6">
           <Slider {...sliderSettings}>
@@ -60,7 +60,7 @@ const BrandSection = () => {
                     <img
                       src={brand.img}
                       alt={`Brand ${index + 1}`}
-                      className="w-24 sm:w-32 md:w-40 mx-auto transition-transform duration-300 hover:scale-110"
+                      className="w-24 sm:w-32 md:w-40 shadow-[0_2px_6px_rgba(0,0,0,0.1)] mx-auto transition-transform duration-300 hover:scale-110"
                     />
                   </a>
                 ) : (
@@ -85,7 +85,7 @@ const BrandSection = () => {
                     <img
                       src={brand.img}
                       alt={`Brand ${brands2.length - index}`}
-                      className="w-24 sm:w-32 md:w-40 mx-auto transition-transform duration-300 hover:scale-110"
+                      className="w-24 sm:w-32 md:w-40 shadow-[0_2px_6px_rgba(0,0,0,0.1)] mx-auto transition-transform duration-300 hover:scale-110"
                     />
                   </a>
                 ) : (

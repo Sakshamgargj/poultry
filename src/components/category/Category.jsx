@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
 import { Eye,ArrowLeft,ArrowRight } from 'lucide-react';
 
-const ITEMS_PER_PAGE = 12;
+const ITEMS_PER_PAGE = 9;
 
 export default function CategorySidebar() {
   const { category, subcategory, product, adImages } = useDataContext();
@@ -111,7 +111,7 @@ export default function CategorySidebar() {
                 key={index}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`block w-full text-left p-2 rounded-lg mb-2 hover:bg-darkprimary transition-all ${selectedCategory?._id === item._id ? "bg-gradient-to-r from-primary to-darkprimary/60 text-white" : ""
+                className={`block w-full text-left p-2 rounded-lg mb-2 hover:bg-darkprimary transition-all ${selectedCategory?._id === item._id ? "bg-gradient-to-r from-primary to-darkprimary text-white" : ""
                   }`}
                 onClick={() => {
                   setSelectedCategory(item);
@@ -133,7 +133,7 @@ export default function CategorySidebar() {
         </h2>
 
         {currentItems.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {currentItems.map((sub, index) => (
               <div
                 key={index}
@@ -224,7 +224,7 @@ export default function CategorySidebar() {
       </div>
 
       {/* Ad Images */}
-      <div className="relative w-full md:w-1/4 h-auto rounded-2xl overflow-hidden">
+      <div className="relative w-full md:w-1/4 h-auto rounded-xl overflow-hidden">
         <motion.div
           className="absolute w-full flex flex-col items-center"
           animate={{ y: ["0%", "-100%"] }}
@@ -240,7 +240,7 @@ export default function CategorySidebar() {
               key={index}
               src={img.updateImg}
               alt={`Banner ${index + 1}`}
-              className="w-full p-1 h-auto rounded-2xl hover:scale-105 object-cover"
+              className="w-full p-1 h-auto rounded-xl hover:scale-105 object-cover"
             />
           ))}
         </motion.div>

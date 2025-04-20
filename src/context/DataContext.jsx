@@ -1,5 +1,6 @@
 import { createContext, useContext } from 'react';
 import { useCategory } from '../hook/useCategory';
+import { useTagline } from '../hook/useTagline';
 import { useSubCategory } from '../hook/useSubCategory';
 import { useProduct } from '../hook/useProduct';
 import { useAdImages } from '../hook/useAdImages';
@@ -11,9 +12,10 @@ export const DataProvider = ({ children }) => {
   const subcategory = useSubCategory();
   const product = useProduct();
   const adImages = useAdImages();
+  const tagline = useTagline();
 
   return (
-    <DataContext.Provider value={{ category, subcategory, product, adImages }}>
+    <DataContext.Provider value={{ category, subcategory, product, adImages, tagline }}>
       {children}
     </DataContext.Provider>
   );
