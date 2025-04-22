@@ -226,7 +226,7 @@ const Navbar = ({ commonData, setLogin }) => {
           {/* <span className="mr-2 text-primary">POULTRY</span>
           <span className="text-darkText">DIGITAL</span> */}
           <img src={logo1}
-            className="w-full h-18 object-cover"
+            className="w-full h-16 object-cover"
           />
         </Link>
 

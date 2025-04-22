@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import { MdCampaign   } from 'react-icons/md'; 
+import { MdCampaign } from 'react-icons/md';
 
 // import image1 from '../assets/banner/WebsiteBanner1.jpg';
 // import image2 from '../assets/banner/WebsiteBanner2.jpg';
@@ -58,7 +58,7 @@ const HeroSection = () => {
     ];
 
     async function getupdates() {
-        await axios.get(import.meta.env.VITE_API_URL+'updateMsg/show').then(reply => {
+        await axios.get(import.meta.env.VITE_API_URL + 'updateMsg/show').then(reply => {
             setUpdates(reply.data.updateMsg)
         })
     }
@@ -196,7 +196,12 @@ const HeroSection = () => {
                         <div className="flex flex-col h-[40vh] overflow-y-auto">
                             {updates.map((update, index) => (
                                 <div key={index} className="flex border-b border-gray-200 hover:bg-gray-50 transition-colors cursor-pointer" >
-                                    <div className="flex-grow p-2 md:p-3 flex justify-between items-center">
+                                    <div className="flex-grow p-2 md:p-3 flex justify-between items-center space-x-2">
+                                        <img
+                                            src={update.image}
+                                            alt={`Banner ${update.id}`}
+                                            className=" inset-0 w-16 rounded-2xl h-full p-1  "
+                                        />
                                         <p className="text-xs md:text-sm text-darkText">{update.update}</p>
                                         {update.sign && <MdCampaign className="text-yellow-500 w-5 h-5 ml-2 -scale-x-100 hover:w-8" />}
                                     </div>

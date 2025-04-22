@@ -105,7 +105,7 @@ export default function CategorySidebar() {
             <h2 className="text-xl text-center text-white sm:text-darkprimary mb-2">Buyers Guide</h2>
           </div>
 
-          <div className="flex-1 overflow-y-auto px-4 pb-4">
+          <div className="flex-1 max-h-screen overflow-y-auto px-4 pb-4">
             {category.category?.map((item, index) => (
               <motion.button
                 key={index}
