@@ -140,7 +140,7 @@ export default function CategorySidebar() {
                 className="md:relative group rounded-lg p-1 md:p-3 bg-white transition-all"
               >
                 <Link
-                  to={`/product/${sub._id}`}>
+                  to={`/company-detail/${sub._id}`}>
                   <motion.img
                     src={sub.img}
                     alt={sub.name}
@@ -169,11 +169,9 @@ export default function CategorySidebar() {
           </div>
         ) : (
           <div className="flex justify-center items-center h-32">
-            <p className="text-center text-sm text-darkText font-mono">No Category exists</p>
+            <p className="text-center text-sm text-darkText font-mono">No Company data exists</p>
           </div>
         )}
-
-
 
         {/* Pagination */}
         {totalPages > 1 && (
