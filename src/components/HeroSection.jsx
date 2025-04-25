@@ -212,7 +212,7 @@ const HeroSection = () => {
                     </div>
 
                 </div>
-                {/* <SearchWithTiltImage /> */}
+                <SearchWithTiltImage />
             </div>
         </div>
     );
