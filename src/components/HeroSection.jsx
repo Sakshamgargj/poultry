@@ -108,12 +108,12 @@ const HeroSection = () => {
             <div className="w-full md:px-8" style={{ height: "auto" }}>
                 <div className="flex flex-col md:flex-row w-full space-x-6">
                     {/* Banner/Video section - full width on mobile, 2/3 width on desktop */}
-                    <div className="w-full md:w-2/3 relative overflow-hidden h-[22vh] md:h-[45vh] ">
+                    <div className="w-full md:w-2/3 relative overflow-hidden h-[30vh] md:h-[45vh] ">
                         {/* Video player */}
                         {!videoPlayed ? (
                             <video
                                 src={video1}
-                                className="absolute inset-0 w-full h-full rounded-2xl border-0 "
+                                className="absolute inset-0 w-full h-full rounded-2xl border-0 object-contain md:object-cover lg:object-contain "
                                 autoPlay
                                 muted
                                 playsInline
@@ -193,7 +193,7 @@ const HeroSection = () => {
                             <h3 className="font-bold text-sm md:text-base text-darkprimary">IMPORTANT UPDATES</h3>
                         </div>
 
-                        <div className="flex flex-col h-[40vh] overflow-y-auto">
+                        <div className="flex flex-col h-[22vh] sm:h-[34vh] md:h-[40vh] overflow-y-auto">
                             {updates.map((update, index) => (
                                 <div key={index} className="flex border-b border-gray-200 hover:bg-gray-50 transition-colors cursor-pointer" >
                                     <div className="flex-grow p-2 md:p-3 flex justify-between items-center space-x-2">
@@ -212,7 +212,7 @@ const HeroSection = () => {
                     </div>
 
                 </div>
-                <SearchWithTiltImage />
+                {/* <SearchWithTiltImage /> */}
             </div>
         </div>
     );

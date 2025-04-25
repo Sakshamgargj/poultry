@@ -416,43 +416,8 @@
 // }
 
 // export default Product;
-// --- First UI
-// import React, { useEffect, useMemo, useState } from 'react';
-// import { useParams } from 'react-router-dom';
-// import { useDataContext } from '../../context/DataContext';
-// import { motion } from 'framer-motion';
 
-
-// function Product() {
-//     const { id } = useParams();
-//     const { subcategory } = useDataContext();
-//     console.log("subcategory",subcategory)
-
-//     const filteredData = useMemo(() => {
-//         if (!subcategory?.subcategory) return [];
-//         return subcategory.subcategory.filter((item) => item._id === id);
-//     }, [subcategory, id]);
-
-//     console.log("object,",filteredData)
-   
-//     return (
-//         <motion.div
-//             className="w-full max-w-7xl mx-auto p-6 bg-white h-auto"
-//             initial={{ opacity: 0 }}
-//             animate={{ opacity: 1 }}
-//             transition={{ duration: 0.5 }}
-//         >
-            
-
-            
-
-            
-//         </motion.div>
-//     );
-// }
-
-// export default Product;
-// --- Second UI
+// --- UI
 import React, { useEffect, useMemo, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useDataContext } from '../../context/DataContext';
@@ -475,9 +440,21 @@ function Product() {
         if (!category?.category) return [];
         return category.category.filter((item) => item._id === product.categoryId);
     }, [category, id]);
-    console.log("object",filteredCategory)
+    // console.log("object",filteredCategory)
     const categorydata = filteredCategory[0] || {};
-    console.log("categorydata.name",categorydata.name)
+    // console.log("categorydata.name",categorydata._id)
+
+    const filteredSubcategories = useMemo(() => {
+        if ( !subcategory?.subcategory) return [];
+    
+        return subcategory.subcategory.filter((sub) => {
+          return (
+            sub.categoryId === categorydata._id ||
+            sub?.categoryId === categorydata?._id
+          );
+        });
+      }, [categorydata._id, subcategory]);
+    //   console.log("filteredSubcategories: ",filteredSubcategories)
 
     useEffect(() => {
         if (Object.keys(product).length > 0) {
@@ -527,12 +504,12 @@ function Product() {
 
     return (
         <motion.div
-            className="min-h-screen bg-gradient-to-b from-gray-50 to-blue-50 py-12 px-4 sm:px-6 lg:px-8"
+            className="h-auto bg-gradient-to-b from-gray-50 to-blue-50 py-12 px-4 sm:px-6 lg:px-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
         >
-            <div className="max-w-7xl mx-auto">
+            <div className="max-w-8xl px-4 mx-auto">
                 {/* Breadcrumb */}
                 <nav className="flex mb-6" aria-label="Breadcrumb">
                     <ol className="inline-flex items-center space-x-1 md:space-x-3">
@@ -800,29 +777,36 @@ function Product() {
                 </div>
 
                 {/* Similar Products Section */}
-                {/* <div className="mt-16">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-6">Similar Products</h2>
+                <div className="mt-16">
+                    <h2 className="text-2xl font-bold text-gray-800 mb-6">Similar Buyers</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                        {Array(4).fill(0).map((_, index) => (
+                        {filteredSubcategories.map((e, index) => (
                             <motion.div 
                                 key={index}
                                 className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow"
                                 whileHover={{ y: -5 }}
                             >
                                 <div className="h-48 bg-gray-100 flex items-center justify-center">
-                                    <div className="text-gray-400">Product Image</div>
-                                </div>
+                                <img 
+                                        src={e.img} 
+                                        alt={product.name} 
+                                        className="w-full h-full object-contain p-4"
+                                        onError={(e) => {
+                                            e.target.onerror = null;
+                                            e.target.src = "https://via.placeholder.com/600x600?text=Image+Not+Available";
+                                        }}
+                                    />                                </div>
                                 <div className="p-4">
-                                    <h3 className="font-semibold text-gray-800">Similar Product {index + 1}</h3>
-                                    <p className="text-gray-500 text-sm mt-1">Sample description for this product</p>
+                                    <h3 className="font-semibold text-gray-800">{e.name}</h3>
+                                    <p className="text-gray-500 text-sm mt-1"dangerouslySetInnerHTML={{ __html: e.description }} />
                                     <div className="mt-4">
-                                        <Link to="#" className="text-blue-600 hover:text-blue-800 text-sm font-medium">View Details</Link>
+                                        <Link to={`/company-detail/${e._id}`} className="text-darkprimary hover:text-primary text-sm font-medium">View Details</Link>
                                     </div>
                                 </div>
                             </motion.div>
                         ))}
                     </div>
-                </div> */}
+                </div>
             </div>
         </motion.div>
     );

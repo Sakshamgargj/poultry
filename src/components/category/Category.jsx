@@ -102,7 +102,7 @@ export default function CategorySidebar() {
       >
         <div className="flex flex-col h-full">
           <div className="px-4 pb-2">
-            <h2 className="text-xl text-center text-white sm:text-darkprimary mb-2">Buyers Guide</h2>
+            <h2 className="text-xl text-center text-black sm:text-darkprimary md:py-4 mb-2">Buyers Guide</h2>
           </div>
 
           <div className="flex-1 max-h-screen overflow-y-auto px-4 pb-4">
@@ -222,7 +222,7 @@ export default function CategorySidebar() {
       </div>
 
       {/* Ad Images */}
-      <div className="relative w-full md:w-1/4 h-auto rounded-xl overflow-hidden">
+      <div className="relative w-full md:w-1/4 h-auto  overflow-hidden">
         <motion.div
           className="absolute w-full flex flex-col items-center"
           animate={{ y: ["0%", "-100%"] }}
@@ -238,7 +238,7 @@ export default function CategorySidebar() {
               key={index}
               src={img.updateImg}
               alt={`Banner ${index + 1}`}
-              className="w-full p-1 h-auto rounded-xl hover:scale-105 object-cover"
+              className="w-full p-1 h-auto hover:scale-105 object-cover"
             />
           ))}
         </motion.div>
