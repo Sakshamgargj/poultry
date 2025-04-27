@@ -12,6 +12,7 @@ import EmailVerify from "./components/Verify";
 import ProfilePage from './components/Profile';
 import Product from "./components/category/Product";
 import Tagline from "./components/Tagline";
+import BookList from "./components/Book";
 function App() {
 
   useEffect(() => {
@@ -37,6 +38,7 @@ function App() {
         <Route Route path="/register" element={<RegisterPage />} />
         <Route path="/email-verify/:token" element={<EmailVerify />} />
         <Route path="/profilePage" element={<ProfilePage />} />
+        <Route path="/publications" element={<BookList />} />
       </Routes>
       <Footer />
     </div>

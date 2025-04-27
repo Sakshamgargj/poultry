@@ -204,8 +204,8 @@ const Navbar = ({ commonData, setLogin }) => {
     {
       title: "PUBLICATIONS",
       dropdown: [
-        { name: "BUYING-SELLING", link: "/publications/buying-selling" },
-        { name: "JOB POSTING", link: "/publications/career" },
+        { name: "BUYING-SELLING", link: "/publications" },
+        { name: "JOB POSTING", link: "/publications" },
       ]
     },
     { title: "MEMBERSHIP PLAN", link: "/membership" },
