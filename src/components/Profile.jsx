@@ -5,7 +5,7 @@ const ProfilePage = () => {
   const { user, loading } = useAuthContext();
 
   return (
-    <div className="h-auto select-none bg-gradient-to-br from-primary to-white pt-40 pb-20 px-4">
+    <div className="h-auto select-none bg-gradient-to-br from-primary to-white pt-20 pb-20 px-4">
       <div className="max-w-md mx-auto">
         {loading ? (
           <motion.div

@@ -201,13 +201,7 @@ const Navbar = ({ commonData, setLogin }) => {
     },
     { title: "LIST BUSINESS", link: "/list-business" },
     { title: "REQUIREMENTS", link: "/post-requirements" },
-    {
-      title: "PUBLICATIONS",
-      dropdown: [
-        { name: "BUYING-SELLING", link: "/publications" },
-        { name: "JOB POSTING", link: "/publications" },
-      ]
-    },
+    { title: "PUBLICATIONS", link: "/publications" },
     { title: "MEMBERSHIP PLAN", link: "/membership" },
     { title: "CONTACT US", link: "/contact" },
   ];

@@ -13,6 +13,9 @@ import ProfilePage from './components/Profile';
 import Product from "./components/category/Product";
 import Tagline from "./components/Tagline";
 import BookList from "./components/Book";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function App() {
 
   useEffect(() => {
@@ -26,6 +29,7 @@ function App() {
 
   return (
     <div>
+      <ToastContainer />
       <Tagline/>
       <Navbar />
       <Routes>
