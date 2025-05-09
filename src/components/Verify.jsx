@@ -1,15 +1,18 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 function EmailVerify() {
     const { token } = useParams();
     const [msg, setMsg] = useState("Verifying your email...");
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         verifyEmail();
+        navigate('/login');
     }, []);
 
     const verifyEmail = async () => {
